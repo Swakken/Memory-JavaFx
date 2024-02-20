@@ -46,7 +46,7 @@ public class Home extends Application {
 
 
         // FullScreen
-//        mijnStage.setFullScreen(true);
+        mijnStage.setFullScreen(true);
 
         //Scene toevoegen en pane daaraan toevoegen
         //Je hebt normaal gezien maar 1 scene
