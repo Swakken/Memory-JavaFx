@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -20,8 +21,12 @@ public class Highscores extends Application {
         Text score4 = new Text("4. Speler D - 70 punten");
         Text score5 = new Text("5. Speler E - 60 punten");
 
+        Button terugButton = new Button("Terug naar Home");
+        terugButton.setFont(Font.font("Arial", 14));
+        terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
+
         VBox buttonVBox = new VBox();
-        buttonVBox.getChildren().addAll(txtTitel, score1, score2, score3, score4, score5);
+        buttonVBox.getChildren().addAll(txtTitel, score1, score2, score3, score4, score5, terugButton);
 
         buttonVBox.setAlignment(Pos.CENTER);
         buttonVBox.setSpacing(12);
