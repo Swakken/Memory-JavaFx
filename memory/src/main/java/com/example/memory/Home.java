@@ -42,6 +42,7 @@ public class Home extends Application {
 
 
         // FullScreen
+        mijnStage.setFullScreenExitHint("Memory");
         mijnStage.setFullScreen(true);
 
         //Scene toevoegen en pane daaraan toevoegen
