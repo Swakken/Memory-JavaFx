@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class Home extends Application {
 
-    public void start(Stage mijnStage) throws IOException {
+    public void start(Stage mijnHomeStage) throws IOException {
         //1 of meerdere Nodes aanmaken aanmaken
         Text txtTitel = new Text("Memory Spel");
         Button btnStartSpel = new Button("Start Spel");
@@ -42,15 +42,15 @@ public class Home extends Application {
 
 
         // FullScreen
-        mijnStage.setFullScreenExitHint("Memory");
-        mijnStage.setFullScreen(true);
+        mijnHomeStage.setFullScreenExitHint("Memory");
+        mijnHomeStage.setFullScreen(true);
 
         //Scene toevoegen en pane daaraan toevoegen
         //Je hebt normaal gezien maar 1 scene
         Scene sceneButtons = new Scene(buttonVBox);
         //Scene toevoegen aan stage die je via parameter binnenkrijgt
-        mijnStage.setScene(sceneButtons);
-        mijnStage.show();
+        mijnHomeStage.setScene(sceneButtons);
+        mijnHomeStage.show();
     }
 
     public static void main(String[] args) {
