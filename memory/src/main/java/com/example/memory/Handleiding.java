@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -14,6 +15,7 @@ public class Handleiding extends Application {
     public void start(Stage mijnHandleidingStage) throws IOException {
         // Handleiding titel
         Text txtTitel = new Text("Memory Spel Handleiding");
+        txtTitel.setFont(Font.font("Arial", 24));
 
         // Handleiding inhoud
         Text intro = new Text("Welkom bij het Memory Spel!");
