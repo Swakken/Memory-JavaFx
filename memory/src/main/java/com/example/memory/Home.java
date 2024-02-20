@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -16,12 +17,14 @@ public class Home extends Application {
 
     public void start(Stage mijnHomeStage) throws IOException {
         //1 of meerdere Nodes aanmaken aanmaken
-        Text txtTitel = new Text("Memory Spel");
+        Text txtTitel = new Text("Memory Homepagina");
         Button btnStartSpel = new Button("Start Spel");
         Button btnHighscores = new Button("Highscores");
         Button btnHandleiding = new Button("Handleiding");
         Button btnInstellingen = new Button("Instellingen");
         Button btnAfsluiten = new Button("Afsluiten");
+
+        txtTitel.setFont(Font.font("Arial", 24));
 
         btnStartSpel.setPrefSize(200,100);
         btnHighscores.setPrefSize(200,100);
@@ -40,9 +43,8 @@ public class Home extends Application {
         buttonVBox.setAlignment(Pos.CENTER);
         buttonVBox.setSpacing(12);
 
-
         // FullScreen
-        mijnHomeStage.setFullScreenExitHint("Memory");
+        mijnHomeStage.setFullScreenExitHint("Druk op ESC om te sluiten");
         mijnHomeStage.setFullScreen(true);
 
         //Scene toevoegen en pane daaraan toevoegen
