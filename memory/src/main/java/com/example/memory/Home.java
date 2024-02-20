@@ -41,10 +41,6 @@ public class Home extends Application {
         buttonVBox.setSpacing(12);
 
 
-
-
-
-
         // FullScreen
         mijnStage.setFullScreen(true);
 
