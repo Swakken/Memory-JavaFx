@@ -3,6 +3,7 @@ package com.example.memory;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -16,6 +17,10 @@ public class Handleiding extends Application {
         // Handleiding titel
         Text txtTitel = new Text("Memory Spel Handleiding");
         txtTitel.setFont(Font.font("Arial", 24));
+
+        Button terugButton = new Button("Terug naar Home");
+        terugButton.setFont(Font.font("Arial", 14));
+        terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
 
         // Handleiding inhoud
         Text intro = new Text("Welkom bij het Memory Spel!");
@@ -35,7 +40,7 @@ public class Handleiding extends Application {
 
         // Layout met VBox
         VBox handleidingVBox = new VBox();
-        handleidingVBox.getChildren().addAll(txtTitel, intro, spelregelsTitel, spelregels, bedieningTitel, bediening);
+        handleidingVBox.getChildren().addAll(txtTitel, intro, spelregelsTitel, spelregels, bedieningTitel, bediening, terugButton);
 
         handleidingVBox.setAlignment(Pos.CENTER);
         handleidingVBox.setSpacing(10);
