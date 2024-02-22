@@ -46,7 +46,6 @@ public class StartSpel extends Application {
         HoofdingVBox.getChildren().addAll(txtStartSpel);
         HoofdingVBox.setAlignment(Pos.CENTER);
 
-
         HBox SpelerNaamHBox = new HBox(10);
         SpelerNaamHBox.getChildren().addAll(lblSpelerNaam, txtfldSpelerNaam);
         SpelerNaamHBox.setAlignment(Pos.CENTER);
@@ -55,18 +54,18 @@ public class StartSpel extends Application {
         buttonHBox.getChildren().addAll(btnAnnuleren, btnStartSpel);
         buttonHBox.setAlignment(Pos.CENTER);
 
-        //Alle content in een Pane zetten en centreren
+        //Alle content in een Main Pane zetten
         VBox MainVBox = new VBox(20);
         MainVBox.getChildren().addAll(HoofdingVBox, SpelerNaamHBox, buttonHBox);
         MainVBox.setScaleX(1.2);
         MainVBox.setScaleY(1.2);
         MainVBox.setAlignment(Pos.CENTER);
 
-
+        //MainVbox op Scene zetten
         Scene sceneStartSpel = new Scene(MainVBox);
 
 
-        //Pane op Scene zetten
+        //Scene op Stage zetten
         mijnStartSpelStage.setScene(sceneStartSpel);
         mijnStartSpelStage.setFullScreen(true);
         mijnStartSpelStage.show();
