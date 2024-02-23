@@ -2,12 +2,13 @@ package com.example.memory.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class StartSpelView extends VBox {
+public class StartSpelView extends BorderPane {
     private Text txtStartSpel;
     private Label lblSpelerNaam;
     private Button btnAnnuleren;
@@ -54,17 +55,21 @@ public class StartSpelView extends VBox {
         btnStartSpel.setFont(Font.font("Arial", 13));
         btnStartSpel.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
 
-        this.getChildren().addAll(hoofdingVBox, spelerNaamHBox, buttonHBox);
-        this.setAlignment(Pos.CENTER);
-        this.setScaleX(1.2);
-        this.setScaleY(1.2);
-        this.setSpacing(20);
+        VBox MainVBox = new VBox(20);
+
+        MainVBox.getChildren().addAll(hoofdingVBox, spelerNaamHBox, buttonHBox);
+        MainVBox.setAlignment(Pos.CENTER);
+        MainVBox.setScaleX(1.2);
+        MainVBox.setScaleY(1.2);
+        MainVBox.setSpacing(20);
+
+        setCenter(MainVBox);
 
         Menu menuAfsluiten = new Menu("Afsluiten");
         Menu menuInstellingen = new Menu("Instellingen");
 
         MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
-//        setTop(menuBar);
+        setTop(menuBar);
         
 
 
