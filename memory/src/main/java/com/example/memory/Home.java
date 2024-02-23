@@ -17,20 +17,9 @@ public class Home extends Application {
 
     public void start(Stage mijnHomeStage) throws IOException {
         //1 of meerdere Nodes aanmaken aanmaken
-        Text txtTitel = new Text("Memory Homepagina");
-        Button btnStartSpel = new Button("Start Spel");
-        Button btnHighscores = new Button("Highscores");
-        Button btnHandleiding = new Button("Handleiding");
-        Button btnInstellingen = new Button("Instellingen");
-        Button btnAfsluiten = new Button("Afsluiten");
 
-        txtTitel.setFont(Font.font("Arial", 24));
 
-        btnStartSpel.setPrefSize(200,100);
-        btnHighscores.setPrefSize(200,100);
-        btnHandleiding.setPrefSize(200,100);
-        btnInstellingen.setPrefSize(200,100);
-        btnAfsluiten.setPrefSize(200,100);
+
 
         VBox buttonVBox = new VBox();
         buttonVBox.getChildren().add(txtTitel);
