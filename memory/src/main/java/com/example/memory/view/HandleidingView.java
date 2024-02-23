@@ -2,15 +2,11 @@ package com.example.memory.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-/**
- * Frederic Backeljau
- * 2/23/2024
- */
+
 public class HandleidingView extends VBox {
     private Text txtTitel;
     private Button terugButton;
