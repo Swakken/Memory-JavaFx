@@ -1,9 +1,7 @@
 package com.example.memory.view;
 
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -61,6 +59,14 @@ public class StartSpelView extends VBox {
         this.setScaleX(1.2);
         this.setScaleY(1.2);
         this.setSpacing(20);
+
+        Menu menuAfsluiten = new Menu("Afsluiten");
+        Menu menuInstellingen = new Menu("Instellingen");
+
+        MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
+//        setTop(menuBar);
+        
+
 
     }
 

@@ -20,7 +20,6 @@ public class HomeView extends BorderPane {
     private MenuItem menuAfsluiten;
     private MenuItem menuInstellingen;
 
-
     public HomeView() {
         initialiseNodes();
         layoutNodes();
@@ -47,6 +46,7 @@ public class HomeView extends BorderPane {
         Menu menuInstellingen = new Menu("Instellingen");
 
         MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
+        setTop(menuBar);
 
         VBox buttonVBox = new VBox();
         buttonVBox.getChildren().add(txtTitel);
@@ -54,7 +54,6 @@ public class HomeView extends BorderPane {
         buttonVBox.getChildren().add(btnHighscores);
         buttonVBox.getChildren().add(btnHandleiding);
 
-        setTop(menuBar);
         buttonVBox.setAlignment(Pos.CENTER);
         setCenter(buttonVBox);
 
