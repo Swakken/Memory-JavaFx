@@ -21,27 +21,27 @@ public class Home extends Application {
 
 
 
-        VBox buttonVBox = new VBox();
-        buttonVBox.getChildren().add(txtTitel);
-        buttonVBox.getChildren().add(btnStartSpel);
-        buttonVBox.getChildren().add(btnHighscores);
-        buttonVBox.getChildren().add(btnHandleiding);
-        buttonVBox.getChildren().add(btnInstellingen);
-        buttonVBox.getChildren().add(btnAfsluiten);
-
-        buttonVBox.setAlignment(Pos.CENTER);
-        buttonVBox.setSpacing(12);
-
-        // FullScreen
-        mijnHomeStage.setFullScreenExitHint("Druk op ESC om te sluiten");
-        mijnHomeStage.setFullScreen(true);
-
-        //Scene toevoegen en pane daaraan toevoegen
-        //Je hebt normaal gezien maar 1 scene
-        Scene sceneButtons = new Scene(buttonVBox);
-        //Scene toevoegen aan stage die je via parameter binnenkrijgt
-        mijnHomeStage.setScene(sceneButtons);
-        mijnHomeStage.show();
+//        VBox buttonVBox = new VBox();
+//        buttonVBox.getChildren().add(txtTitel);
+//        buttonVBox.getChildren().add(btnStartSpel);
+//        buttonVBox.getChildren().add(btnHighscores);
+//        buttonVBox.getChildren().add(btnHandleiding);
+//        buttonVBox.getChildren().add(btnInstellingen);
+//        buttonVBox.getChildren().add(btnAfsluiten);
+//
+//        buttonVBox.setAlignment(Pos.CENTER);
+//        buttonVBox.setSpacing(12);
+//
+//        // FullScreen
+//        mijnHomeStage.setFullScreenExitHint("Druk op ESC om te sluiten");
+//        mijnHomeStage.setFullScreen(true);
+//
+//        //Scene toevoegen en pane daaraan toevoegen
+//        //Je hebt normaal gezien maar 1 scene
+//        Scene sceneButtons = new Scene(buttonVBox);
+//        //Scene toevoegen aan stage die je via parameter binnenkrijgt
+//        mijnHomeStage.setScene(sceneButtons);
+//        mijnHomeStage.show();
     }
 
     public static void main(String[] args) {
