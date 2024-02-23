@@ -2,12 +2,15 @@ package com.example.memory.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 
-public class HandleidingView extends VBox {
+public class HandleidingView extends BorderPane {
     private Text txtTitel;
     private Button terugButton;
     private Text intro;
@@ -48,10 +51,23 @@ private void layoutNodes(){
     terugButton.setFont(Font.font("Arial", 14));
     terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
     this.getChildren().addAll(txtTitel, intro, spelregelsTitel, spelregels, bedieningTitel, bediening, terugButton);
-    this.setAlignment(Pos.CENTER);
-    this.setSpacing(10);
+
+    VBox MainVBox = new VBox(20);
+
+    MainVBox.getChildren().addAll(txtTitel, intro, spelregelsTitel, spelregels, bedieningTitel, bediening, terugButton);
+    MainVBox.setAlignment(Pos.CENTER);
+    MainVBox.setScaleX(1.2);
+    MainVBox.setScaleY(1.2);
+    MainVBox.setSpacing(10);
+
+    setCenter(MainVBox);
 
 
+    Menu menuAfsluiten = new Menu("Afsluiten");
+    Menu menuInstellingen = new Menu("Instellingen");
+
+    MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
+    setTop(menuBar);
 
 }
 }

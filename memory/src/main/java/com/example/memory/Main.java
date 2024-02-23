@@ -1,5 +1,6 @@
 package com.example.memory;
 
+import com.example.memory.view.HandleidingView;
 import com.example.memory.view.HomeView;
 import com.example.memory.view.StartSpelView;
 import javafx.application.Application;
@@ -11,7 +12,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        HomeView view = new HomeView();
-        StartSpelView view = new StartSpelView();
+//        StartSpelView view = new StartSpelView();
+        HandleidingView view = new HandleidingView();
 
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
