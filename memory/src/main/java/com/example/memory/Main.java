@@ -1,6 +1,7 @@
 package com.example.memory;
 
 import com.example.memory.view.HandleidingView;
+import com.example.memory.view.HighscoresView;
 import com.example.memory.view.HomeView;
 import com.example.memory.view.StartSpelView;
 import javafx.application.Application;
@@ -11,18 +12,20 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+//        Views Testen:
 //        HomeView view = new HomeView();
 //        StartSpelView view = new StartSpelView();
-        HandleidingView view = new HandleidingView();
-
+//        HandleidingView view = new HandleidingView();
+        HighscoresView view = new HighscoresView();
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
 
         primaryStage.setTitle("Memory");
 //        primaryStage.setFullScreen(true);
-        primaryStage.setMinHeight(400);
-        primaryStage.setMinWidth(400);
+        primaryStage.setMinHeight(500);
+        primaryStage.setMinWidth(500);
         primaryStage.show();
+
 
     }
 

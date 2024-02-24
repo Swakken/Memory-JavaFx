@@ -59,8 +59,8 @@ public class StartSpelView extends BorderPane {
 
         MainVBox.getChildren().addAll(hoofdingVBox, spelerNaamHBox, buttonHBox);
         MainVBox.setAlignment(Pos.CENTER);
-        MainVBox.setScaleX(1.2);
-        MainVBox.setScaleY(1.2);
+        MainVBox.setScaleX(1.5);
+        MainVBox.setScaleY(1.5);
         MainVBox.setSpacing(20);
 
         setCenter(MainVBox);
