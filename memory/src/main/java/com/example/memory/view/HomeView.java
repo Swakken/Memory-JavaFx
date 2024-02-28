@@ -31,6 +31,8 @@ public class HomeView extends BorderPane {
         btnHighscores = new Button("Highscores");
         btnHandleiding = new Button("Handleiding");
 
+        btnStartSpel.setStyle("-fx-background-color: green;");
+
         menuAfsluiten = new MenuItem();
         menuInstellingen = new MenuItem();
 
