@@ -13,12 +13,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        Views Testen:
-//        HomeView view = new HomeView();
+        HomeView view = new HomeView();
 //        StartSpelView view = new StartSpelView();
 //        HandleidingView view = new HandleidingView();
-        HighscoresView view = new HighscoresView();
+//        HighscoresView view = new HighscoresView();
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
+        scene.getStylesheets().add("/stylesheets/home.css");
 
         primaryStage.setTitle("Memory");
 //        primaryStage.setFullScreen(true);
