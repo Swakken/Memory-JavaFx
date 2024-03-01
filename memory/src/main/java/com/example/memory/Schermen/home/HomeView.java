@@ -17,8 +17,11 @@ public class HomeView extends BorderPane {
     private Button btnHighscores;
     private Button btnHandleiding;
 
-    private MenuItem menuAfsluiten;
-    private MenuItem menuInstellingen;
+    private Menu menuHulp;
+
+    private MenuItem afsluiten;
+
+    private MenuItem instellingen;
 
     public HomeView() {
         initialiseNodes();
@@ -33,8 +36,9 @@ public class HomeView extends BorderPane {
         btnHighscores = new Button("Highscores");
         btnHandleiding = new Button("Handleiding");
 
-        menuAfsluiten = new MenuItem();
-        menuInstellingen = new MenuItem();
+        menuHulp = new Menu("Hulp");
+        afsluiten = new MenuItem("Afsluiten");
+        instellingen = new MenuItem("Instellingen");
     }
 
     public Button getBtnStartSpel() {
@@ -49,8 +53,8 @@ public class HomeView extends BorderPane {
         return btnHandleiding;
     }
 
-    public MenuItem getMenuAfsluiten() {
-        return menuAfsluiten;
+    public MenuItem getAfsluiten() {
+        return afsluiten;
     }
 
     private void layoutNodes() {
@@ -59,11 +63,11 @@ public class HomeView extends BorderPane {
         btnHighscores.setPrefSize(200, 100);
         btnHandleiding.setPrefSize(200, 100);
 
-        Menu menuAfsluiten = new Menu("Afsluiten");
-        Menu menuInstellingen = new Menu("Instellingen");
+        menuHulp.getItems().addAll(afsluiten, instellingen);
 
-        MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
-        setTop(menuBar);
+
+
+        setTop(new MenuBar(menuHulp));
 
         VBox buttonVBox = new VBox();
         buttonVBox.getChildren().add(txtTitel);
@@ -73,6 +77,8 @@ public class HomeView extends BorderPane {
 
         buttonVBox.setAlignment(Pos.CENTER);
         setCenter(buttonVBox);
+
+
 
 
 
