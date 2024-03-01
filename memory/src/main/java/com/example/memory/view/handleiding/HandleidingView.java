@@ -42,11 +42,13 @@ private void initialiseNodes(){
             "- Gebruik de muis om kaarten te selecteren.\n" +
                     "- ESC toets om het spel te pauzeren."
     );
-
-
 }
 
-private void layoutNodes(){
+    public Button getTerugButton() {
+        return terugButton;
+    }
+
+    private void layoutNodes(){
     txtTitel.setFont(Font.font("Arial", 24));
     terugButton.setFont(Font.font("Arial", 14));
     terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
