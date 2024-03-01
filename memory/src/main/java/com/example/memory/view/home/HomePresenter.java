@@ -24,7 +24,7 @@ public class HomePresenter {
 
             StartSpelView mijnSpelView = new StartSpelView();
             StartSpelPresenter mijnSpelPresenter = new StartSpelPresenter(mijnSpelView);
-            
+
             this.view.getScene().setRoot(mijnSpelView);
         });
     }
@@ -49,8 +49,6 @@ public class HomePresenter {
             this.view.getScene().setRoot(mijnHandleidingView);
         });
     }
-
-
 
 
 }
