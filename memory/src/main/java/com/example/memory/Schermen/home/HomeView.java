@@ -18,9 +18,7 @@ public class HomeView extends BorderPane {
     private Button btnHandleiding;
 
     private Menu menuHulp;
-
     private MenuItem afsluiten;
-
     private MenuItem instellingen;
 
     public HomeView() {

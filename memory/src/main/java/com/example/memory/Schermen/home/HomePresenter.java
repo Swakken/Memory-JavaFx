@@ -20,7 +20,7 @@ public class HomePresenter {
         this.addEventListnersStartSpel();
         this.addEventListnersHighscores();
         this.addEventListnersHandleiding();
-        this.addEventListnersShutdown();
+        this.addEventListnersAfsluiten();
     }
 
     private void addEventListnersStartSpel() {
@@ -54,7 +54,7 @@ public class HomePresenter {
         });
     }
 
-    private void addEventListnersShutdown() {
+    private void addEventListnersAfsluiten() {
         this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
             System.exit(0);
         });
