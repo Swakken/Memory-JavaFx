@@ -1,10 +1,51 @@
 .root {
-    -fx-background-color: #7193ba;
+    -fx-background-image: url("/img/background.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    /*-fx-background-color: #e76f51;*/
+}
+
+.menu-bar {
+    -fx-background-color: #000000;
+}
+
+.menu-item {
+    -fx-text-fill: #ECF0F1;
+    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.menu-item:focused, .menu-item:hover {
+    -fx-background-color: #34495E;
+}
+
+.menu-bar > .container {
+    -fx-padding: 0 20;
+}
+
+.menu-bar > .container > .menu-item {
+    -fx-spacing: 10;
+}
+
+.button {
+    -fx-background-color: #3498DB;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-padding: 5 16;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #2980B9;
 }
 
 .text {
-    -fx-fill: #2F4F4F;
-    -fx-font-size: 28px;
-    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-fill: #FFA500; /* Lichte oranje tekstkleur voor de titel */
+    -fx-font-size: 24px;
+    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font-weight: bold;
+    -fx-padding: 0 20;
 }
-
