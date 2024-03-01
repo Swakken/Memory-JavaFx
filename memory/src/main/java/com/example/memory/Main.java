@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     @Override
@@ -17,7 +19,9 @@ public class Main extends Application {
 //        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/icon.png")));
 
 
-        primaryStage.getIcons().add(new Image("https://i.stack.imgur.com/6ZjZM.png"));
+//        primaryStage.getIcons().add(new Image("/icon.png"));
+        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/icon.png")));
+        primaryStage.getIcons().add(icon);
 
 
 //        primaryStage.getIcons().add(
