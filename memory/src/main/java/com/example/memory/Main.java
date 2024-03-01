@@ -16,7 +16,10 @@ public class Main extends Application {
 
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
-//        scene.getStylesheets().add("/stylesheets/home.css");
+
+        scene.getStylesheets().add(getClass().getResource("/stylesheets/home.css").toExternalForm());
+
+        //scene.getStylesheets().add("home.css");
 
         primaryStage.setTitle("Memory");
 //        primaryStage.setFullScreen(true);
