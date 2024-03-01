@@ -24,5 +24,4 @@ public class HighscoresPresenter {
             this.view.getScene().setRoot(mijnHomeView);
         });
     }
-
 }
