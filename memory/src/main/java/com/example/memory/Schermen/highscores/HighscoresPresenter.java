@@ -11,6 +11,7 @@ public class HighscoresPresenter {
     public HighscoresPresenter(HighscoresView view) {
         this.view = view;
         this.addEventListnersHomePagina();
+        this.addEventListnersAfsluiten();
     }
 
     private void addEventListnersHomePagina() {
@@ -20,6 +21,13 @@ public class HighscoresPresenter {
             HomePresenter mijnHomePresenter = new HomePresenter(mijnHomeView);
 
             this.view.getScene().setRoot(mijnHomeView);
+        });
+    }
+
+    private void addEventListnersAfsluiten(){
+        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+            System.exit(0);
+
         });
     }
 }

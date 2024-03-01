@@ -20,50 +20,56 @@ public class HighscoresView extends BorderPane {
     private Text score5;
     private Button terugButton;
 
-    private MenuItem menuAfsluiten;
-    private MenuItem menuInstellingen;
+    private Menu menuHulp;
+    private MenuItem afsluiten;
+    private MenuItem instellingen;
 
-public HighscoresView() {
-    initialiseNodes();
-    layoutNodes();
-}
+    public HighscoresView() {
+        initialiseNodes();
+        layoutNodes();
+    }
 
-private void initialiseNodes(){
-    txtTitel = new Text("Highscores");
-    score1 = new Text("1. Speler A - 100 punten");
-    score2 = new Text("1. Speler A - 90 punten");
-    score3 = new Text("1. Speler A - 80 punten");
-    score4 = new Text("1. Speler A - 70 punten");
-    score5 = new Text("1. Speler A - 60 punten");
-    terugButton = new Button("Terug naar Home");
-    menuAfsluiten = new MenuItem();
-    menuInstellingen = new MenuItem();
-}
+    private void initialiseNodes() {
+        txtTitel = new Text("Highscores");
+        score1 = new Text("1. Speler A - 100 punten");
+        score2 = new Text("1. Speler A - 90 punten");
+        score3 = new Text("1. Speler A - 80 punten");
+        score4 = new Text("1. Speler A - 70 punten");
+        score5 = new Text("1. Speler A - 60 punten");
+        terugButton = new Button("Terug naar Home");
+        menuHulp = new Menu("Hulp");
+        afsluiten = new MenuItem("Afsluiten");
+        instellingen = new MenuItem("Instellingen");
+
+    }
 
     public Button getTerugButton() {
         return terugButton;
     }
 
-    private void layoutNodes(){
-    terugButton.setFont(Font.font("Arial", 14));
-    terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
+    public MenuItem getAfsluiten() {
+        return afsluiten;
+    }
 
-    Menu menuAfsluiten = new Menu("Afsluiten");
-    Menu menuInstellingen = new Menu("Instellingen");
-
-    MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
-    setTop(menuBar);
+    private void layoutNodes() {
+        terugButton.setFont(Font.font("Arial", 14));
+        terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
 
 
-    VBox buttonVBox = new VBox();
-    buttonVBox.getChildren().addAll(txtTitel, score1, score2, score3, score4, score5, terugButton);
-    buttonVBox.setAlignment(Pos.CENTER);
-    buttonVBox.setSpacing(12);
 
-    setCenter(buttonVBox);
 
-    buttonVBox.setScaleX(1.8);
-    buttonVBox.setScaleY(1.8);
+        VBox buttonVBox = new VBox();
+        buttonVBox.getChildren().addAll(txtTitel, score1, score2, score3, score4, score5, terugButton);
+        buttonVBox.setAlignment(Pos.CENTER);
+        buttonVBox.setSpacing(12);
 
-}
+        setCenter(buttonVBox);
+
+        buttonVBox.setScaleX(1.8);
+        buttonVBox.setScaleY(1.8);
+        menuHulp.getItems().addAll(afsluiten, instellingen);
+        MenuBar menuBar = new MenuBar(menuHulp);
+        setTop(menuBar);
+
+    }
 }
