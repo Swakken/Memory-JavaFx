@@ -23,7 +23,8 @@ public class HomeView extends BorderPane {
     public HomeView() {
         initialiseNodes();
         layoutNodes();
-        this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
+        this.getStylesheets().add("home.css");
+
     }
 
     private void initialiseNodes() {
