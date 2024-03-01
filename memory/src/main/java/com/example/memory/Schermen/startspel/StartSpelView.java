@@ -16,6 +16,10 @@ public class StartSpelView extends BorderPane {
 
     private TextField txtfldSpelerNaam;
 
+    private Menu menuHulp;
+    private MenuItem afsluiten;
+    private MenuItem instellingen;
+
     public StartSpelView() {
         initialiseNodes();
         layoutNodes();
@@ -27,10 +31,17 @@ public class StartSpelView extends BorderPane {
         btnAnnuleren = new Button("Annuleren");
         btnStartSpel = new Button("Start Spel");
         txtfldSpelerNaam = new TextField();
+        menuHulp = new Menu("Hulp");
+        afsluiten = new MenuItem("Afsluiten");
+        instellingen = new MenuItem("Instellingen");
     }
 
     public Button getBtnAnnuleren() {
         return btnAnnuleren;
+    }
+
+    public MenuItem getAfsluiten() {
+        return afsluiten;
     }
 
     private void layoutNodes() {
@@ -69,10 +80,8 @@ public class StartSpelView extends BorderPane {
 
         setCenter(MainVBox);
 
-        Menu menuAfsluiten = new Menu("Afsluiten");
-        Menu menuInstellingen = new Menu("Instellingen");
-
-        MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
+        menuHulp.getItems().addAll(afsluiten, instellingen);
+        MenuBar menuBar = new MenuBar(menuHulp);
         setTop(menuBar);
 
 

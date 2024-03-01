@@ -14,6 +14,7 @@ public class StartSpelPresenter {
         this.view = view;
         this.addEventListnersHome();
         this.addEventListnersSpelScherm();
+        this.addEventListnersAfsluiten();
     }
 
     private void addEventListnersHome() {
@@ -33,6 +34,12 @@ public class StartSpelPresenter {
             SpelschermPresenter mijnSpelschermPresenter = new SpelschermPresenter(mijnSpelschermView);
 
             this.view.getScene().setRoot(mijnSpelschermView);
+        });
+    }
+    private void addEventListnersAfsluiten(){
+        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+            System.exit(0);
+
         });
     }
 
