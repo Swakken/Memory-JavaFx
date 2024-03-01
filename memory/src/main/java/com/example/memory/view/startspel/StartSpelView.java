@@ -29,6 +29,10 @@ public class StartSpelView extends BorderPane {
         txtfldSpelerNaam = new TextField();
     }
 
+    public Button getBtnAnnuleren() {
+        return btnAnnuleren;
+    }
+
     private void layoutNodes() {
         //Nodes in Panes zetten
         VBox hoofdingVBox = new VBox();
@@ -70,13 +74,9 @@ public class StartSpelView extends BorderPane {
 
         MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
         setTop(menuBar);
-        
 
 
     }
-
-
-
 
 
 }

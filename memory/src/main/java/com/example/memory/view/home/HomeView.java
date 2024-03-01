@@ -37,6 +37,18 @@ public class HomeView extends BorderPane {
         menuInstellingen = new MenuItem();
     }
 
+    public Button getBtnStartSpel() {
+        return btnStartSpel;
+    }
+
+    public Button getBtnHighscores() {
+        return btnHighscores;
+    }
+
+    public Button getBtnHandleiding() {
+        return btnHandleiding;
+    }
+
     private void layoutNodes() {
         txtTitel.setFont(Font.font("Arial", 24));
         btnStartSpel.setPrefSize(200, 100);
