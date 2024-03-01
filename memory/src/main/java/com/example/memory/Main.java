@@ -1,5 +1,6 @@
 package com.example.memory;
 
+import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,10 +10,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         HomeView view = new HomeView();
+        HomePresenter presenter = new HomePresenter(view);
+
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add("/stylesheets/home.css");
+//        scene.getStylesheets().add("/stylesheets/home.css");
 
         primaryStage.setTitle("Memory");
 //        primaryStage.setFullScreen(true);
