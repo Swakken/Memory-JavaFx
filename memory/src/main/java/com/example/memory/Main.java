@@ -1,5 +1,6 @@
 package com.example.memory;
 
+import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,6 +12,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 //        Views Testen:
         HomeView view = new HomeView();
+
+        HomePresenter presenter = new HomePresenter(view);
+
 //        StartSpelView view = new StartSpelView();
 //        HandleidingView view = new HandleidingView();
 //        HighscoresView view = new HighscoresView();
