@@ -1,9 +1,6 @@
 package com.example.memory;
 
-import com.example.memory.view.HandleidingView;
-import com.example.memory.view.HighscoresView;
-import com.example.memory.view.HomeView;
-import com.example.memory.view.StartSpelView;
+import com.example.memory.view.home.HomeView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -26,7 +23,7 @@ public class Main extends Application {
         primaryStage.setMinHeight(500);
         primaryStage.setMinWidth(500);
         primaryStage.show();
-
+        
     }
 
     public static void main(String[] args) {
