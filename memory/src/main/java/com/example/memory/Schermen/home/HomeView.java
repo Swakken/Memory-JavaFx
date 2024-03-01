@@ -48,6 +48,10 @@ public class HomeView extends BorderPane {
         return btnHandleiding;
     }
 
+    public MenuItem getMenuAfsluiten() {
+        return menuAfsluiten;
+    }
+
     private void layoutNodes() {
         txtTitel.setFont(Font.font("Arial", 24));
         btnStartSpel.setPrefSize(200, 100);
@@ -68,6 +72,8 @@ public class HomeView extends BorderPane {
 
         buttonVBox.setAlignment(Pos.CENTER);
         setCenter(buttonVBox);
+
+
 
     }
 }

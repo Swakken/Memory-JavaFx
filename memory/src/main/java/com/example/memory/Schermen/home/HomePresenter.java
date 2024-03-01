@@ -6,6 +6,7 @@ import com.example.memory.Schermen.highscores.HighscoresPresenter;
 import com.example.memory.Schermen.highscores.HighscoresView;
 import com.example.memory.Schermen.startspel.StartSpelPresenter;
 import com.example.memory.Schermen.startspel.StartSpelView;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 
 public class HomePresenter {
@@ -17,6 +18,7 @@ public class HomePresenter {
         this.addEventListnersStartSpel();
         this.addEventListnersHighscores();
         this.addEventListnersHandleiding();
+        this.addEventListnersAfsluiten();
     }
 
     private void addEventListnersStartSpel() {
@@ -47,6 +49,12 @@ public class HomePresenter {
             HandleidingPresenter mijnHandleidingPresenter = new HandleidingPresenter(mijnHandleidingView);
 
             this.view.getScene().setRoot(mijnHandleidingView);
+        });
+    }
+
+    private void addEventListnersAfsluiten() {
+        this.view.getMenuAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+            System.exit(0);
         });
     }
 
