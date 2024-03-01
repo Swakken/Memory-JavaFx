@@ -38,8 +38,8 @@ public class Main extends Application {
 
         primaryStage.setTitle("Memory");
 //        primaryStage.setFullScreen(true);
-        primaryStage.setMinHeight(500);
-        primaryStage.setMinWidth(500);
+        primaryStage.setMinHeight(600);
+        primaryStage.setMinWidth(650);
         primaryStage.show();
 
     }
