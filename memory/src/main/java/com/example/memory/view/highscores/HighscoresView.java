@@ -40,7 +40,11 @@ private void initialiseNodes(){
     menuInstellingen = new MenuItem();
 }
 
-private void layoutNodes(){
+    public Button getTerugButton() {
+        return terugButton;
+    }
+
+    private void layoutNodes(){
     terugButton.setFont(Font.font("Arial", 14));
     terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
 
