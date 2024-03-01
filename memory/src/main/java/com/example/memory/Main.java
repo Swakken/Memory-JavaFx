@@ -1,7 +1,7 @@
 package com.example.memory;
 
-import com.example.memory.view.home.HomePresenter;
-import com.example.memory.view.home.HomeView;
+import com.example.memory.Schermen.home.HomePresenter;
+import com.example.memory.Schermen.home.HomeView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

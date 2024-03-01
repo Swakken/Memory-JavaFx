@@ -1,4 +1,4 @@
-package com.example.memory.view.highscores;
+package com.example.memory.Schermen.highscores;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

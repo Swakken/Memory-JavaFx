@@ -1,11 +1,11 @@
-package com.example.memory.view.home;
+package com.example.memory.Schermen.home;
 
-import com.example.memory.view.handleiding.HandleidingPresenter;
-import com.example.memory.view.handleiding.HandleidingView;
-import com.example.memory.view.highscores.HighscoresPresenter;
-import com.example.memory.view.highscores.HighscoresView;
-import com.example.memory.view.startspel.StartSpelPresenter;
-import com.example.memory.view.startspel.StartSpelView;
+import com.example.memory.Schermen.handleiding.HandleidingPresenter;
+import com.example.memory.Schermen.handleiding.HandleidingView;
+import com.example.memory.Schermen.highscores.HighscoresPresenter;
+import com.example.memory.Schermen.highscores.HighscoresView;
+import com.example.memory.Schermen.startspel.StartSpelPresenter;
+import com.example.memory.Schermen.startspel.StartSpelView;
 import javafx.event.ActionEvent;
 
 public class HomePresenter {

@@ -1,4 +1,4 @@
-package com.example.memory.view.startspel;
+package com.example.memory.Schermen.startspel;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -78,5 +78,7 @@ public class StartSpelView extends BorderPane {
 
     }
 
-
+    public Button getBtnStartSpel() {
+        return btnStartSpel;
+    }
 }

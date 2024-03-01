@@ -1,16 +1,14 @@
-package com.example.memory.view.highscores;
+package com.example.memory.Schermen.handleiding;
 
-import com.example.memory.view.home.HomePresenter;
-import com.example.memory.view.home.HomeView;
-import com.example.memory.view.startspel.StartSpelPresenter;
-import com.example.memory.view.startspel.StartSpelView;
+import com.example.memory.Schermen.home.HomePresenter;
+import com.example.memory.Schermen.home.HomeView;
 import javafx.event.ActionEvent;
 
-public class HighscoresPresenter {
+public class HandleidingPresenter {
 
-    private HighscoresView view;
+    private HandleidingView view;
 
-    public HighscoresPresenter(HighscoresView view) {
+    public HandleidingPresenter(HandleidingView view) {
         this.view = view;
         this.addEventListnersHomePagina();
     }
