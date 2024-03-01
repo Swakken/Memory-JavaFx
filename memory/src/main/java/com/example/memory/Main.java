@@ -1,6 +1,7 @@
 package com.example.memory;
 
 import com.example.memory.view.home.HomeView;
+import com.example.memory.view.spelscherm.SpelschermView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,11 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Views Testen:
         HomeView view = new HomeView();
-//        StartSpelView view = new StartSpelView();
-//        HandleidingView view = new HandleidingView();
-//        HighscoresView view = new HighscoresView();
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
         scene.getStylesheets().add("/stylesheets/home.css");
