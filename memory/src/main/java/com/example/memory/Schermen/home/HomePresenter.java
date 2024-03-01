@@ -8,6 +8,7 @@ import com.example.memory.Schermen.startspel.StartSpelPresenter;
 import com.example.memory.Schermen.startspel.StartSpelView;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
 
 public class HomePresenter {
 
@@ -53,7 +54,7 @@ public class HomePresenter {
     }
 
     private void addEventListnersAfsluiten() {
-        this.view.getMenuAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+        this.view.getMenuAfsluiten().addEventHandler(MouseEvent.MOUSE_CLICKED, (actionEvent) -> {
             System.exit(0);
         });
     }
