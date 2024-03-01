@@ -20,7 +20,7 @@ public class Main extends Application {
 //        HighscoresView view = new HighscoresView();
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add("/stylesheets/home.css");
+//        scene.getStylesheets().add("/stylesheets/home.css");
 
         primaryStage.setTitle("Memory");
 //        primaryStage.setFullScreen(true);
