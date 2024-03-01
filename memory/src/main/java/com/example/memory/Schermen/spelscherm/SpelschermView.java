@@ -53,4 +53,7 @@ public class SpelschermView extends BorderPane {
         setTop(menuBar);
     }
 
+    public Button getBtnMenu() {
+        return btnMenu;
+    }
 }
