@@ -23,6 +23,7 @@ public class HomeView extends BorderPane {
     public HomeView() {
         initialiseNodes();
         layoutNodes();
+        this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
     }
 
     private void initialiseNodes() {
@@ -30,8 +31,6 @@ public class HomeView extends BorderPane {
         btnStartSpel = new Button("Start Spel");
         btnHighscores = new Button("Highscores");
         btnHandleiding = new Button("Handleiding");
-
-        btnStartSpel.setStyle("-fx-background-color: green;");
 
         menuAfsluiten = new MenuItem();
         menuInstellingen = new MenuItem();

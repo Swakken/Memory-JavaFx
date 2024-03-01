@@ -1,0 +1,10 @@
+.root {
+    -fx-background-color: #7193ba;
+}
+
+.text {
+    -fx-fill: #2F4F4F;
+    -fx-font-size: 28px;
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
