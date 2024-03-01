@@ -23,7 +23,7 @@ public class Main extends Application {
         primaryStage.setMinHeight(500);
         primaryStage.setMinWidth(500);
         primaryStage.show();
-        
+
     }
 
     public static void main(String[] args) {
