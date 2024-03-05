@@ -1,13 +1,10 @@
 .root {
     -fx-background-image: url("/img/background.png");
-    -fx-background-size: cover;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center center;
-    /*-fx-background-color: #e76f51;*/
+    -fx-image: url("../icon.png");
 }
 
 .menu-bar {
-    -fx-background-color: #000000;
+    -fx-background-color: #2d2c2c;
 }
 
 .menu-item {
@@ -30,7 +27,7 @@
 }
 
 .button {
-    -fx-background-color: #3498DB;
+    -fx-background-color: #db6134;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 14px;
     -fx-padding: 5 16;
@@ -39,11 +36,11 @@
 }
 
 .button:hover {
-    -fx-background-color: #2980B9;
+    -fx-background-color: #ffcd8c;
 }
 
 .text {
-    -fx-fill: #FFA500; /* Lichte oranje tekstkleur voor de titel */
+    -fx-fill: #FFA500;
     -fx-font-size: 24px;
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -fx-font-weight: bold;

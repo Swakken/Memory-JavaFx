@@ -43,7 +43,6 @@ public class HomePresenter {
         });
     }
 
-
     private void addEventListnersHandleiding() {
         this.view.getBtnHandleiding().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
 
@@ -59,7 +58,4 @@ public class HomePresenter {
             System.exit(0);
         });
     }
-
-
-
 }

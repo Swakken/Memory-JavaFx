@@ -15,6 +15,8 @@ public class StartSpelPresenter {
         this.addEventListnersHome();
         this.addEventListnersSpelScherm();
         this.addEventListnersAfsluiten();
+        this.enableStartButtonBasedOnNameInput();
+        view.getBtnStartSpel().setDisable(view.getTxtfldSpelerNaam().getText().trim().isEmpty());
     }
 
     private void addEventListnersHome() {
@@ -40,6 +42,12 @@ public class StartSpelPresenter {
         this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
             System.exit(0);
 
+        });
+    }
+
+    private void enableStartButtonBasedOnNameInput() {
+        view.getTxtfldSpelerNaam().textProperty().addListener((observable, oldValue, newValue) -> {
+            view.getBtnStartSpel().setDisable(newValue.trim().isEmpty());
         });
     }
 

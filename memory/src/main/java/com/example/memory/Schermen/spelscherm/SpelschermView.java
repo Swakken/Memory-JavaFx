@@ -15,10 +15,9 @@ public class SpelschermView extends BorderPane {
 
     private Button btnMenu;
     private Text txtScore;
+    private GridPane gpSpelBord;
 
-
-
-    public SpelschermView(){
+    public SpelschermView() {
         initialseNodes();
         layoutNodes();
     }
@@ -26,10 +25,11 @@ public class SpelschermView extends BorderPane {
     private void initialseNodes() {
         btnMenu = new Button("Menu");
         txtScore = new Text("Score: ");
+        gpSpelBord = new GridPane();
     }
 
     private void layoutNodes() {
-        btnMenu.setPrefSize(100,40);
+        btnMenu.setPrefSize(100, 40);
         btnMenu.setFont(Font.font("Arial", 13));
         btnMenu.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
         txtScore.setFont(Font.font("Arial", 13));
@@ -40,8 +40,6 @@ public class SpelschermView extends BorderPane {
         BottomHBox.getChildren().addAll(btnMenu);
         this.setBottom(BottomHBox);
 
-
-        GridPane gpSpelBord = new GridPane();
         this.setCenter(gpSpelBord);
         this.setLeft(txtScore);
 
@@ -51,6 +49,10 @@ public class SpelschermView extends BorderPane {
 
         MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
         setTop(menuBar);
+    }
+
+    public GridPane getGpSpelBord() {
+        return gpSpelBord;
     }
 
     public Button getBtnMenu() {

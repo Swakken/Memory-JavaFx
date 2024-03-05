@@ -13,9 +13,7 @@ public class StartSpelView extends BorderPane {
     private Label lblSpelerNaam;
     private Button btnAnnuleren;
     private Button btnStartSpel;
-
     private TextField txtfldSpelerNaam;
-
     private Menu menuHulp;
     private MenuItem afsluiten;
     private MenuItem instellingen;
@@ -42,6 +40,14 @@ public class StartSpelView extends BorderPane {
 
     public MenuItem getAfsluiten() {
         return afsluiten;
+    }
+
+    public TextField getTxtfldSpelerNaam() {
+        return txtfldSpelerNaam;
+    }
+
+    public Label getLblSpelerNaam() {
+        return lblSpelerNaam;
     }
 
     private void layoutNodes() {
