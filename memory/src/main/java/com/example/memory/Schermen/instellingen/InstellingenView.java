@@ -8,7 +8,6 @@ import javafx.scene.text.Text;
 
 public class InstellingenView {
     private Text txtTitel;
-
     private Menu menuHulp;
     private MenuItem afsluiten;
     private MenuItem instellingen;
@@ -32,8 +31,11 @@ public class InstellingenView {
 
     private void layoutNodes() {
         txtTitel.setFont(Font.font("Arial", 24));
+
+        MenuBar menuBar = new MenuBar();
         menuHulp.getItems().addAll(afsluiten, instellingen);
-//        setTop(new MenuBar(menuHulp));
+        menuBar.getMenus().add(menuHulp);
+
 
     }
 

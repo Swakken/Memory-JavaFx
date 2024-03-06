@@ -4,6 +4,8 @@ import com.example.memory.Schermen.handleiding.HandleidingPresenter;
 import com.example.memory.Schermen.handleiding.HandleidingView;
 import com.example.memory.Schermen.highscores.HighscoresPresenter;
 import com.example.memory.Schermen.highscores.HighscoresView;
+import com.example.memory.Schermen.instellingen.InstellingenPresenter;
+import com.example.memory.Schermen.instellingen.InstellingenView;
 import com.example.memory.Schermen.startspel.StartSpelPresenter;
 import com.example.memory.Schermen.startspel.StartSpelView;
 import javafx.application.Platform;
@@ -21,6 +23,7 @@ public class HomePresenter {
         this.addEventListnersHighscores();
         this.addEventListnersHandleiding();
         this.addEventListnersAfsluiten();
+        this.addEventListenersInstellingen();
     }
 
     private void addEventListnersStartSpel() {
@@ -56,6 +59,16 @@ public class HomePresenter {
     private void addEventListnersAfsluiten() {
         this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
             System.exit(0);
+        });
+    }
+
+    private void addEventListenersInstellingen() {
+        this.view.getInstellingen().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+            InstellingenView mijnInstellingenView = new InstellingenView();
+            InstellingenPresenter mijnInstellingenPresenter = new InstellingenPresenter(mijnInstellingenView);
+
+            // Fout met verwijzing naar InstellingenView
+//            this.view.getScene().setRoot(mijnInstellingenView);
         });
     }
 }
