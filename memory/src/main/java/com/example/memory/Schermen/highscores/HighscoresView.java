@@ -37,10 +37,10 @@ public class HighscoresView extends BorderPane {
         score4 = new Text("1. Speler A - 70 punten");
         score5 = new Text("1. Speler A - 60 punten");
         terugButton = new Button("Terug naar Home");
+
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
-
     }
 
     public Button getTerugButton() {
@@ -55,9 +55,6 @@ public class HighscoresView extends BorderPane {
         terugButton.setFont(Font.font("Arial", 14));
         terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
 
-
-
-
         VBox buttonVBox = new VBox();
         buttonVBox.getChildren().addAll(txtTitel, score1, score2, score3, score4, score5, terugButton);
         buttonVBox.setAlignment(Pos.CENTER);
@@ -67,9 +64,8 @@ public class HighscoresView extends BorderPane {
 
         buttonVBox.setScaleX(1.8);
         buttonVBox.setScaleY(1.8);
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        MenuBar menuBar = new MenuBar(menuHulp);
-        setTop(menuBar);
 
+        menuHulp.getItems().addAll(afsluiten, instellingen);
+        setTop(new MenuBar(menuHulp));
     }
 }

@@ -8,6 +8,7 @@ public class InstellingenPresenter {
 
     public InstellingenPresenter(InstellingenView view) {
         this.view = view;
+        this.addEventListnersAfsluiten();
     }
 
     private void addEventListnersAfsluiten() {
