@@ -75,7 +75,6 @@ public class SpelschermPresenter {
         Button clickedCard = (Button) event.getSource();
         String cardValue = cardValuesMap.get(clickedCard);
 
-        // Implement your logic for handling card clicks here
         System.out.println("Card Clicked: " + cardValue);
     }
 }
