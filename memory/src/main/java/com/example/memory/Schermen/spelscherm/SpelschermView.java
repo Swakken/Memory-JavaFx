@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -17,6 +18,10 @@ public class SpelschermView extends BorderPane {
     private Text txtScore;
     private GridPane gpSpelBord;
 
+    private Menu menuHulp;
+    private MenuItem afsluiten;
+    private MenuItem instellingen;
+
     public SpelschermView() {
         initialseNodes();
         layoutNodes();
@@ -26,6 +31,10 @@ public class SpelschermView extends BorderPane {
         btnMenu = new Button("Menu");
         txtScore = new Text("Score: ");
         gpSpelBord = new GridPane();
+
+        menuHulp = new Menu("Hulp");
+        afsluiten = new MenuItem("Afsluiten");
+        instellingen = new MenuItem("Instellingen");
     }
 
     private void layoutNodes() {
@@ -43,12 +52,8 @@ public class SpelschermView extends BorderPane {
         this.setCenter(gpSpelBord);
         this.setLeft(txtScore);
 
-        Menu menuAfsluiten = new Menu("Afsluiten");
-        Menu menuInstellingen = new Menu("Instellingen");
-
-
-        MenuBar menuBar = new MenuBar(menuAfsluiten, menuInstellingen);
-        setTop(menuBar);
+        menuHulp.getItems().addAll(afsluiten, instellingen);
+        setTop(new MenuBar(menuHulp));
     }
 
     public GridPane getGpSpelBord() {
@@ -57,5 +62,9 @@ public class SpelschermView extends BorderPane {
 
     public Button getBtnMenu() {
         return btnMenu;
+    }
+
+    public MenuItem getAfsluiten() {
+        return afsluiten;
     }
 }

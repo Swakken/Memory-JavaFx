@@ -14,6 +14,7 @@ public class StartSpelView extends BorderPane {
     private Button btnAnnuleren;
     private Button btnStartSpel;
     private TextField txtfldSpelerNaam;
+
     private Menu menuHulp;
     private MenuItem afsluiten;
     private MenuItem instellingen;
@@ -29,6 +30,7 @@ public class StartSpelView extends BorderPane {
         btnAnnuleren = new Button("Annuleren");
         btnStartSpel = new Button("Start Spel");
         txtfldSpelerNaam = new TextField();
+
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
@@ -51,7 +53,6 @@ public class StartSpelView extends BorderPane {
     }
 
     private void layoutNodes() {
-        //Nodes in Panes zetten
         VBox hoofdingVBox = new VBox();
         hoofdingVBox.getChildren().addAll(txtStartSpel);
         hoofdingVBox.setAlignment(Pos.CENTER);
@@ -65,7 +66,6 @@ public class StartSpelView extends BorderPane {
         HBox buttonHBox = new HBox(10);
         buttonHBox.getChildren().addAll(btnAnnuleren, btnStartSpel);
         buttonHBox.setAlignment(Pos.CENTER);
-
 
         btnAnnuleren.setPrefSize(100, 40);
         btnStartSpel.setPrefSize(100, 40);
@@ -87,9 +87,7 @@ public class StartSpelView extends BorderPane {
         setCenter(MainVBox);
 
         menuHulp.getItems().addAll(afsluiten, instellingen);
-        MenuBar menuBar = new MenuBar(menuHulp);
-        setTop(menuBar);
-
+        setTop(new MenuBar(menuHulp));
 
     }
 

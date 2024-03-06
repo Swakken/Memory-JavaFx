@@ -55,6 +55,14 @@ public class HomeView extends BorderPane {
         return afsluiten;
     }
 
+    public Menu getMenuHulp() {
+        return menuHulp;
+    }
+
+    public MenuItem getInstellingen() {
+        return instellingen;
+    }
+
     private void layoutNodes() {
         txtTitel.setFont(Font.font("Arial", 24));
         btnStartSpel.setPrefSize(200, 100);
@@ -62,9 +70,6 @@ public class HomeView extends BorderPane {
         btnHandleiding.setPrefSize(200, 100);
 
         menuHulp.getItems().addAll(afsluiten, instellingen);
-
-
-
         setTop(new MenuBar(menuHulp));
 
         VBox buttonVBox = new VBox();
@@ -75,10 +80,6 @@ public class HomeView extends BorderPane {
 
         buttonVBox.setAlignment(Pos.CENTER);
         setCenter(buttonVBox);
-
-
-
-
 
     }
 }

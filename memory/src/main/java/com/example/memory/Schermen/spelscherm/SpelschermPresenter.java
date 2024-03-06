@@ -21,8 +21,9 @@ public class SpelschermPresenter {
     public SpelschermPresenter(SpelschermView view) {
         this.view = view;
         this.cardValuesMap = new HashMap<>();
-        addEventListenerMenu();
-        initializeMemoryCards();
+        this.addEventListenerMenu();
+        this.initializeMemoryCards();
+        this.addEventListnersAfsluiten();
     }
 
     private void addEventListenerMenu() {
@@ -77,4 +78,11 @@ public class SpelschermPresenter {
 
         System.out.println("Card Clicked: " + cardValue);
     }
+
+    private void addEventListnersAfsluiten() {
+        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+            System.exit(0);
+        });
+    }
+
 }
