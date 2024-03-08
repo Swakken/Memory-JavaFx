@@ -134,11 +134,8 @@ public class SpelschermView extends BorderPane {
 
                 //cardButton.setGraphic(imgvwCardBackground);
 
-
                 gpSpelBord.add(cardButton, row, col);
 
-                // Add to buttonsArrayList
-                buttons.add(cardButton);
             }
         }
     }

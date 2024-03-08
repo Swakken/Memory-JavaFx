@@ -15,7 +15,7 @@ public class Board {
 
     private int breedte;
 
-    private Cell[] cellen;
+    private Cell[] cellenArray;
 
     public Board(int lengte, int breedte) {
         setSize(lengte, breedte);
@@ -25,31 +25,19 @@ public class Board {
         this.lengte = lengte;
         this.breedte = breedte;
 
-        cellen = new Cell[lengte * breedte];
+        cellenArray = new Cell[lengte * breedte];
 
-        for (int i = 0; i < cellen.length; i++)
-
-
-        cellen = new Cell[lengte][];
-
-        for (int i = 0; i < lengte; i++) {
-            cellen[i] = new Cell[breedte];
-
-            for (int j = 0; j < breedte; j++) {
-                cellen[i][j] = new Cell(j,i);
-            }
-        }
+        for (int i = 0; i < cellenArray.length; i++)
+            cellenArray = new Cell[i];
 
         shuffleBoard();
     }
 
     private void shuffleBoard(){
-
-
         // Lijsten van alle cellen
         List<Cell> cellenLijst = new ArrayList<>();
 
-        for (Cell[] rij : cellen)
+        for (Cell rij : cellenArray)
             cellenLijst.addAll(Arrays.asList(rij));
 
         // Shuffelen lijst
@@ -57,10 +45,6 @@ public class Board {
 
         // Totale cellen
         int totaleIds = (lengte * breedte) / 2;
-
-        // 0 1
-        // 2 3
-        // 4 5
 
         // Assign id's
         for (int i = 0; i < totaleIds; i++) {
@@ -84,17 +68,17 @@ public class Board {
         return breedte;
     }
 
-    public boolean cellsMatch(int x1, int y1, int x2, int y2){
-        return;
-    }
-
-    public int[][] toIds(){
-
-    }
-
-    public boolean[][] toTurned(){
-
-    }
+//    public boolean cellsMatch(){
+//        return;
+//    }
+//
+//    public int[][] toIds(){
+//
+//    }
+//
+//    public boolean[][] toTurned(){
+//
+//    }
 
 
 }

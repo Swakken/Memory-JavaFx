@@ -24,7 +24,7 @@ public class SpelschermPresenter {
         //this.initializeMemoryCards();
         this.addEventListnersAfsluiten();
 
-        this.view.showBoard(game.getBoardIds());
+//        this.view.showBoard(game.getBoardIds());
     }
 
     private void addEventListenerMenu() {
@@ -34,17 +34,6 @@ public class SpelschermPresenter {
             this.view.getScene().setRoot(mijnHomeView);
         });
     }
-
-//    private void updateButton(Button button, String dierenId) {
-//
-//        String imagePath = dierenId + ".png";
-//
-//        Image nieuweAfbeelding = new Image(getClass().getResourceAsStream(imagePath));
-//
-//        ((ImageView) button.getGraphic()).setImage(nieuweAfbeelding);
-//    }
-
-
 
     private void addEventListnersAfsluiten() {
         this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
