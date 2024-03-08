@@ -11,6 +11,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class SpelschermView extends BorderPane {
 
@@ -22,12 +25,22 @@ public class SpelschermView extends BorderPane {
     private MenuItem afsluiten;
     private MenuItem instellingen;
 
+    private List<Button> buttons;
+
+    private String [][] dierId;
+
     public SpelschermView() {
+
+        // Init list
+        buttons = new ArrayList<>();
+
         initialseNodes();
         layoutNodes();
+        createGrid();
     }
 
     private void initialseNodes() {
+
         btnMenu = new Button("Menu");
         txtScore = new Text("Score: ");
         gpSpelBord = new GridPane();
@@ -35,6 +48,7 @@ public class SpelschermView extends BorderPane {
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
+//        dierId = new String[][]= {};
     }
 
     private void layoutNodes() {
@@ -49,6 +63,9 @@ public class SpelschermView extends BorderPane {
         BottomHBox.getChildren().addAll(btnMenu);
         this.setBottom(BottomHBox);
 
+        gpSpelBord.setAlignment(Pos.CENTER);
+        gpSpelBord.setHgap(10);
+        gpSpelBord.setVgap(10);
         this.setCenter(gpSpelBord);
         this.setLeft(txtScore);
 
@@ -66,5 +83,30 @@ public class SpelschermView extends BorderPane {
 
     public MenuItem getAfsluiten() {
         return afsluiten;
+    }
+
+    private void createGrid() {
+
+        int numRows = 4;
+        int numCols = 4;
+
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                Button cardButton = new Button();
+                cardButton.setId(row + "-" + col);
+                cardButton.setPrefSize(100, 100);
+                cardButton.setFont(Font.font("Arial", 13));
+                cardButton.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;");
+
+                gpSpelBord.add(cardButton, row, col);
+
+                // Add to buttonsArrayList
+                buttons.add(cardButton);
+            }
+        }
+    }
+
+    public List<Button> getButtons() {
+        return buttons;
     }
 }
