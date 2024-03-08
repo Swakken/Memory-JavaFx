@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -24,10 +26,13 @@ public class SpelschermView extends BorderPane {
     private Menu menuHulp;
     private MenuItem afsluiten;
     private MenuItem instellingen;
-
     private List<Button> buttons;
 
     private String [][] dierId;
+
+    private Image imgCardBackground;
+
+    private ImageView imgvwCardBackground;
 
     public SpelschermView() {
 
@@ -48,6 +53,7 @@ public class SpelschermView extends BorderPane {
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
+        imgCardBackground = new Image("defaultCardBackground.png");
 //        dierId = new String[][]= {};
     }
 
@@ -96,7 +102,14 @@ public class SpelschermView extends BorderPane {
                 cardButton.setId(row + "-" + col);
                 cardButton.setPrefSize(100, 100);
                 cardButton.setFont(Font.font("Arial", 13));
-                cardButton.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;");
+                cardButton.setStyle("-fx-background-color: #ff8e00; -fx-text-fill: white;");
+                imgvwCardBackground = new ImageView(imgCardBackground);
+                cardButton.setGraphic(imgvwCardBackground);
+
+
+
+
+
 
                 gpSpelBord.add(cardButton, row, col);
 
@@ -109,4 +122,5 @@ public class SpelschermView extends BorderPane {
     public List<Button> getButtons() {
         return buttons;
     }
+
 }
