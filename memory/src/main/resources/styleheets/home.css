@@ -1,7 +1,7 @@
-.root {
-    -fx-background-image: url("/img/background.png");
-    -fx-image: url("../icon.png");
-}
+/*.root {*/
+/*    -fx-background-image: url("/background.png");*/
+/*    -fx-image: url("../img/icon.png");*/
+/*}*/
 
 .menu-bar {
     -fx-background-color: #2d2c2c;
@@ -28,10 +28,13 @@
 
 .button {
     -fx-background-color: #db6134;
-    -fx-text-fill: #FFFFFF;
-    -fx-font-size: 14px;
-    -fx-padding: 5 16;
-    -fx-border-radius: 5;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-border-width: 2;
+    -fx-border-color: none;
+    -fx-graphic-text-gap: 15px;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 50px;
     -fx-cursor: hand;
 }
 

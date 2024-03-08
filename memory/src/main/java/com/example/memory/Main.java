@@ -18,8 +18,7 @@ public class Main extends Application {
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
 
-        Image icon = new Image("/icon.png");
-        primaryStage.getIcons().add(icon);
+
 
 
         primaryStage.setTitle("Memory");
