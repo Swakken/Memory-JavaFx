@@ -15,11 +15,8 @@ public class HomeView extends BorderPane {
 
     private Text txtTitel;
     private Button btnStartSpel;
-    private Image start;
     private Button btnHighscores;
-    private Image highscores;
     private Button btnHandleiding;
-    private Image help;
 
     private Menu menuHulp;
     private MenuItem afsluiten;
@@ -29,15 +26,13 @@ public class HomeView extends BorderPane {
         initialiseNodes();
         layoutNodes();
         this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
-        this.setCustomBackground();
-
     }
 
     private void initialiseNodes() {
 
-        start = new Image("start.png", 30, 30, true, true);
-        highscores = new Image("highscores.png", 30, 30, true, true);
-        help = new Image("help.png", 30, 30, true, true);
+        Image start = new Image("start.png", 30, 30, true, true);
+        Image highscores = new Image("highscores.png", 30, 30, true, true);
+        Image help = new Image("help.png", 30, 30, true, true);
 
         txtTitel = new Text("Memory Homepagina");
         btnStartSpel = new Button("Start Spel", new ImageView(start));
@@ -47,33 +42,34 @@ public class HomeView extends BorderPane {
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
+
     }
 
     private void layoutNodes() {
         txtTitel.setFont(Font.font("Arial", 24));
 
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        setTop(new MenuBar(menuHulp));
-
         VBox buttonVBox = new VBox();
         buttonVBox.getChildren().add(txtTitel);
+        txtTitel.setId("txtTitel");
         buttonVBox.getChildren().add(btnStartSpel);
         buttonVBox.getChildren().add(btnHighscores);
         buttonVBox.getChildren().add(btnHandleiding);
 
         buttonVBox.setAlignment(Pos.CENTER);
+        buttonVBox.setSpacing(10);
+
+        // Optie 1
+        buttonVBox.setBackground(new Background(new BackgroundImage(new Image("background.jpg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
+        // Optie 2
+        //buttonVBox.setBackground(new Background(new BackgroundImage(new Image("background2.jpeg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
+
         setCenter(buttonVBox);
 
-    }
-
-    private void setCustomBackground() {
-        BackgroundImage backgroundImage = new BackgroundImage(new Image("/background.png"),
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
-                BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
-        Background background = new Background(backgroundImage);
-        setBackground(background);
+        menuHulp.getItems().addAll(afsluiten, instellingen);
+        setTop(new MenuBar(menuHulp));
 
     }
+
 
     // Getters
     public Button getBtnStartSpel() {
@@ -86,18 +82,6 @@ public class HomeView extends BorderPane {
 
     public Button getBtnHandleiding() {
         return btnHandleiding;
-    }
-
-    public MenuItem getAfsluiten() {
-        return afsluiten;
-    }
-
-    public Menu getMenuHulp() {
-        return menuHulp;
-    }
-
-    public MenuItem getInstellingen() {
-        return instellingen;
     }
 
 }

@@ -1,7 +1,3 @@
-.root {
-    -fx-background-image: url("background.png");
-}
-
 .menu-bar {
     -fx-background-color: #2d2c2c;
 }
@@ -32,7 +28,7 @@
     -fx-border-width: 2;
     -fx-border-color: none;
     -fx-graphic-text-gap: 15px;
-    -fx-pref-width: 200px;
+    -fx-pref-width: 220px;
     -fx-pref-height: 50px;
     -fx-cursor: hand;
 }
@@ -42,9 +38,23 @@
 }
 
 .text {
-    -fx-fill: #FFA500;
+    /* Optie 1 */
+    /*-fx-fill: #FFA500;*/
+    /* Optie 2 */
+    -fx-fill: black;
+
     -fx-font-size: 24px;
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -fx-font-weight: bold;
     -fx-padding: 0 20;
 }
+
+#txtTitel {
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 32px;
+    -fx-fill: black;
+}
+
+/* Handleiding Css */
+
+

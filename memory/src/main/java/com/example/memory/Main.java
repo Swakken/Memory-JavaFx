@@ -5,6 +5,7 @@ import com.example.memory.view.home.HomeView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -18,15 +19,18 @@ public class Main extends Application {
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
 
-
-
-
         primaryStage.setTitle("Memory");
 //        primaryStage.setFullScreen(true);
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(650);
-        Image icon = new Image("icon.png", 32, 32, true, true);
+
+        // Iets Groter scherm
+//        primaryStage.setMinHeight(750);
+//        primaryStage.setMinWidth(1200);
+
+        Image icon = new Image("icon.jpg");
         primaryStage.getIcons().add(icon);
+
         primaryStage.show();
 
     }

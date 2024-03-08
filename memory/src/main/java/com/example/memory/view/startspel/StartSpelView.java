@@ -2,9 +2,8 @@ package com.example.memory.view.startspel;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -22,6 +21,7 @@ public class StartSpelView extends BorderPane {
     public StartSpelView() {
         initialiseNodes();
         layoutNodes();
+        this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
     }
 
     private void initialiseNodes() {
@@ -70,20 +70,15 @@ public class StartSpelView extends BorderPane {
         btnAnnuleren.setPrefSize(100, 40);
         btnStartSpel.setPrefSize(100, 40);
 
-        btnAnnuleren.setFont(Font.font("Arial", 13));
-        btnAnnuleren.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
-
-        btnStartSpel.setFont(Font.font("Arial", 13));
-        btnStartSpel.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
-
         VBox MainVBox = new VBox(20);
 
         MainVBox.getChildren().addAll(hoofdingVBox, spelerNaamHBox, buttonHBox);
         MainVBox.setAlignment(Pos.CENTER);
-        MainVBox.setScaleX(1.5);
-        MainVBox.setScaleY(1.5);
-        MainVBox.setSpacing(20);
 
+
+        MainVBox.setBackground(new Background(new BackgroundImage(new Image("background.jpg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
+
+        txtStartSpel.setId("txtTitel");
         setCenter(MainVBox);
 
         menuHulp.getItems().addAll(afsluiten, instellingen);

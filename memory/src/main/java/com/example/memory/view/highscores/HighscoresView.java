@@ -5,8 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -27,6 +27,7 @@ public class HighscoresView extends BorderPane {
     public HighscoresView() {
         initialiseNodes();
         layoutNodes();
+        this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
     }
 
     private void initialiseNodes() {
@@ -52,18 +53,16 @@ public class HighscoresView extends BorderPane {
     }
 
     private void layoutNodes() {
-        terugButton.setFont(Font.font("Arial", 14));
-        terugButton.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
-
         VBox buttonVBox = new VBox();
         buttonVBox.getChildren().addAll(txtTitel, score1, score2, score3, score4, score5, terugButton);
         buttonVBox.setAlignment(Pos.CENTER);
         buttonVBox.setSpacing(12);
 
+        buttonVBox.setBackground(new Background(new BackgroundImage(new Image("background.jpg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
+
+        txtTitel.setId("txtTitel");
         setCenter(buttonVBox);
 
-        buttonVBox.setScaleX(1.8);
-        buttonVBox.setScaleY(1.8);
 
         menuHulp.getItems().addAll(afsluiten, instellingen);
         setTop(new MenuBar(menuHulp));
