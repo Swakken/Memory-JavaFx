@@ -1,4 +1,4 @@
-package com.example.memory.Schermen.instellingen;
+package com.example.memory.view.instellingen;
 
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;

@@ -1,17 +1,14 @@
-package com.example.memory.Schermen.home;
+package com.example.memory.view.home;
 
-import com.example.memory.Schermen.handleiding.HandleidingPresenter;
-import com.example.memory.Schermen.handleiding.HandleidingView;
-import com.example.memory.Schermen.highscores.HighscoresPresenter;
-import com.example.memory.Schermen.highscores.HighscoresView;
-import com.example.memory.Schermen.instellingen.InstellingenPresenter;
-import com.example.memory.Schermen.instellingen.InstellingenView;
-import com.example.memory.Schermen.startspel.StartSpelPresenter;
-import com.example.memory.Schermen.startspel.StartSpelView;
-import javafx.application.Platform;
+import com.example.memory.view.handleiding.HandleidingPresenter;
+import com.example.memory.view.handleiding.HandleidingView;
+import com.example.memory.view.highscores.HighscoresPresenter;
+import com.example.memory.view.highscores.HighscoresView;
+import com.example.memory.view.instellingen.InstellingenPresenter;
+import com.example.memory.view.instellingen.InstellingenView;
+import com.example.memory.view.startspel.StartSpelPresenter;
+import com.example.memory.view.startspel.StartSpelView;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 
 public class HomePresenter {
 

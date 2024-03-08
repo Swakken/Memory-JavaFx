@@ -1,4 +1,4 @@
-package com.example.memory.Schermen.startspel;
+package com.example.memory.view.startspel;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.*;

@@ -1,30 +1,30 @@
-package com.example.memory.Schermen.spelscherm;
+package com.example.memory.view.spelscherm;
 
-import com.example.memory.Schermen.home.HomePresenter;
-import com.example.memory.Schermen.home.HomeView;
+import com.example.memory.model.Game;
+import com.example.memory.view.home.HomePresenter;
+import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class SpelschermPresenter {
+
+    private Game game;
 
     private SpelschermView view;
 
 
-    public SpelschermPresenter(SpelschermView view) {
+    public SpelschermPresenter(Game game, SpelschermView view) {
+        this.game = game;
         this.view = view;
         //this.cardValuesMap = new HashMap<>();
         this.addEventListenerMenu();
         //this.initializeMemoryCards();
         this.addEventListnersAfsluiten();
+
+        this.view.showBoard(game.getBoardIds());
     }
 
     private void addEventListenerMenu() {
@@ -34,6 +34,15 @@ public class SpelschermPresenter {
             this.view.getScene().setRoot(mijnHomeView);
         });
     }
+
+//    private void updateButton(Button button, String dierenId) {
+//
+//        String imagePath = dierenId + ".png";
+//
+//        Image nieuweAfbeelding = new Image(getClass().getResourceAsStream(imagePath));
+//
+//        ((ImageView) button.getGraphic()).setImage(nieuweAfbeelding);
+//    }
 
 
 
@@ -49,7 +58,6 @@ public class SpelschermPresenter {
         EventHandler<ActionEvent> handler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 Button button = (Button) event.getSource();
                 String[] split = button.getId().split("-");
 
@@ -58,7 +66,13 @@ public class SpelschermPresenter {
 
 
 
+                // Communiceren met model
 
+                // Ophalen id van
+                int cellId = 1;
+
+                // Update tile
+                view.updateTile(row, col, cellId);
 
             }
         };

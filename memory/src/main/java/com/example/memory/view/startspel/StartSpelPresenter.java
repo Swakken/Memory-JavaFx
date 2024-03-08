@@ -1,9 +1,9 @@
-package com.example.memory.Schermen.startspel;
+package com.example.memory.view.startspel;
 
-import com.example.memory.Schermen.home.HomePresenter;
-import com.example.memory.Schermen.home.HomeView;
-import com.example.memory.Schermen.spelscherm.SpelschermPresenter;
-import com.example.memory.Schermen.spelscherm.SpelschermView;
+import com.example.memory.view.home.HomePresenter;
+import com.example.memory.view.home.HomeView;
+import com.example.memory.view.spelscherm.SpelschermPresenter;
+import com.example.memory.view.spelscherm.SpelschermView;
 import javafx.event.ActionEvent;
 
 public class StartSpelPresenter {

@@ -1,7 +1,7 @@
-package com.example.memory.Schermen.handleiding;
+package com.example.memory.view.handleiding;
 
-import com.example.memory.Schermen.home.HomePresenter;
-import com.example.memory.Schermen.home.HomeView;
+import com.example.memory.view.home.HomePresenter;
+import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;
 
 public class HandleidingPresenter {

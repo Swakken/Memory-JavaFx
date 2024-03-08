@@ -1,4 +1,4 @@
-package com.example.memory.Schermen.spelscherm;
+package com.example.memory.view.spelscherm;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -6,7 +6,6 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -14,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -26,18 +26,16 @@ public class SpelschermView extends BorderPane {
     private Menu menuHulp;
     private MenuItem afsluiten;
     private MenuItem instellingen;
-    private List<Button> buttons;
+    private Button[][] buttons;
 
-    private String [][] dierId;
+    private String[][] dierId;
 
     private Image imgCardBackground;
 
-    private ImageView imgvwCardBackground;
+
+    //private ImageView imgvwCardBackground;
 
     public SpelschermView() {
-
-        // Init list
-        buttons = new ArrayList<>();
 
         initialseNodes();
         layoutNodes();
@@ -54,7 +52,12 @@ public class SpelschermView extends BorderPane {
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
         imgCardBackground = new Image("defaultCardBackground.png");
-//        dierId = new String[][]= {};
+        dierId = new String[][] {
+                {"papegaai", "papegaai", "mandrill", "mandrill"},
+                {"toekan", "toekan", "koala", "koala"},
+                {"panter", "panter", "chimpansee", "chimpansee"},
+                {"kikker", "kikker", "kameleon", "kameleon"}
+        };
     }
 
     private void layoutNodes() {
@@ -79,6 +82,10 @@ public class SpelschermView extends BorderPane {
         setTop(new MenuBar(menuHulp));
     }
 
+    public String[][] getDierId() {
+        return dierId;
+    }
+
     public GridPane getGpSpelBord() {
         return gpSpelBord;
     }
@@ -91,24 +98,41 @@ public class SpelschermView extends BorderPane {
         return afsluiten;
     }
 
+
     private void createGrid() {
 
         int numRows = 4;
         int numCols = 4;
 
+        // Create new buttons
+        buttons = new Button[numRows][];
+
         for (int row = 0; row < numRows; row++) {
+
+            buttons[row] =  new Button[numCols];
+
             for (int col = 0; col < numCols; col++) {
                 Button cardButton = new Button();
+
+
                 cardButton.setId(row + "-" + col);
+
+
                 cardButton.setPrefSize(100, 100);
                 cardButton.setFont(Font.font("Arial", 13));
                 cardButton.setStyle("-fx-background-color: #ff8e00; -fx-text-fill: white;");
-                imgvwCardBackground = new ImageView(imgCardBackground);
-                cardButton.setGraphic(imgvwCardBackground);
 
+                buttons[row][col] =cardButton;
 
+//                imgvwCardBackground = new ImageView(imgCardBackground);
+//                imgvwCardBackground.setFitHeight(cardButton.getPrefHeight());
+//                imgvwCardBackground.setFitWidth(cardButton.getPrefWidth());
 
+                //Elke knop een dier toewijzen:
+                //String dierenId = dierId[col][row];
+                //cardButton.setUserData(dierenId);
 
+                //cardButton.setGraphic(imgvwCardBackground);
 
 
                 gpSpelBord.add(cardButton, row, col);
@@ -120,7 +144,27 @@ public class SpelschermView extends BorderPane {
     }
 
     public List<Button> getButtons() {
-        return buttons;
+
+        List<Button> lst = new ArrayList<>();
+
+        for (Button[] button : buttons)
+            lst.addAll(Arrays.asList(button));
+
+        return lst;
     }
+
+//    private String idToImage(){
+//
+//    }
+
+    public void updateTile(int row, int col, int id){
+
+//        idToImage();
+
+        //buttons[row][col];
+
+    }
+
+
 
 }

@@ -1,7 +1,7 @@
-package com.example.memory.Schermen.highscores;
+package com.example.memory.view.highscores;
 
-import com.example.memory.Schermen.home.HomePresenter;
-import com.example.memory.Schermen.home.HomeView;
+import com.example.memory.view.home.HomePresenter;
+import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;
 
 public class HighscoresPresenter {

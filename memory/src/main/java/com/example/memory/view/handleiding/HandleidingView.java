@@ -1,4 +1,4 @@
-package com.example.memory.Schermen.handleiding;
+package com.example.memory.view.handleiding;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
