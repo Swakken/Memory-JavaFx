@@ -30,28 +30,28 @@ public class Game {
 
     }
 
-    public void selecteerCell(int id){
-        if
-    }
-
-    public kanCellenVergelijken(){
-
-    }
-
-    public boolean vergelijkCellen(){
-        return board.cellsMatch();
-    }
-
-    public turnCellMatching(int id){
-        //board.turnMatchingCells(x, y);
-    }
-
-    public int[] getBoardIds(){
-
-    }
-
-    public boolean[] getBoardTurned(){
-
-    }
+//    public void selecteerCell(int id){
+//        if
+//    }
+//
+//    public kanCellenVergelijken(){
+//
+//    }
+//
+//    public boolean vergelijkCellen(){
+//        return board.cellsMatch();
+//    }
+//
+//    public turnCellMatching(int id){
+//        //board.turnMatchingCells(x, y);
+//    }
+//
+//    public int[] getBoardIds(){
+//
+//    }
+//
+//    public boolean[] getBoardTurned(){
+//
+//    }
 
 }

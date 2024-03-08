@@ -84,4 +84,11 @@ public class HomeView extends BorderPane {
         return btnHandleiding;
     }
 
+    public MenuItem getAfsluiten() {
+        return afsluiten;
+    }
+
+    public MenuItem getInstellingen() {
+        return instellingen;
+    }
 }

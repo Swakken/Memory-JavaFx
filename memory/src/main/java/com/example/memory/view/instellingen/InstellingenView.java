@@ -1,5 +1,8 @@
 package com.example.memory.view.instellingen;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -11,6 +14,8 @@ public class InstellingenView {
     private Menu menuHulp;
     private MenuItem afsluiten;
     private MenuItem instellingen;
+
+    private Button terugButton;
 
     public InstellingenView() {
         initialiseNodes();
@@ -27,6 +32,7 @@ public class InstellingenView {
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
+        terugButton = new Button("Terug naar Home");
     }
 
     private void layoutNodes() {
@@ -36,8 +42,10 @@ public class InstellingenView {
         menuHulp.getItems().addAll(afsluiten, instellingen);
         menuBar.getMenus().add(menuHulp);
 
-
     }
 
+    public Button getTerugButton() {
+        return terugButton;
+    }
 
 }

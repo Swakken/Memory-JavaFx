@@ -30,15 +30,15 @@ public class Board {
         for (int i = 0; i < cellen.length; i++)
 
 
-        cellen = new Cell[lengte][];
-
-        for (int i = 0; i < lengte; i++) {
-            cellen[i] = new Cell[breedte];
-
-            for (int j = 0; j < breedte; j++) {
-                cellen[i][j] = new Cell(j,i);
-            }
-        }
+//        cellen = new Cell[lengte][];
+//
+//        for (int i = 0; i < lengte; i++) {
+//            cellen[i] = new Cell[breedte];
+//
+//            for (int j = 0; j < breedte; j++) {
+//                cellen[i][j] = new Cell(j,i);
+//            }
+//        }
 
         shuffleBoard();
     }
@@ -49,8 +49,8 @@ public class Board {
         // Lijsten van alle cellen
         List<Cell> cellenLijst = new ArrayList<>();
 
-        for (Cell[] rij : cellen)
-            cellenLijst.addAll(Arrays.asList(rij));
+//        for (Cell[] rij : cellen)
+//            cellenLijst.addAll(Arrays.asList(rij));
 
         // Shuffelen lijst
         Collections.shuffle(cellenLijst);
@@ -84,17 +84,17 @@ public class Board {
         return breedte;
     }
 
-    public boolean cellsMatch(int x1, int y1, int x2, int y2){
-        return;
-    }
+//    public boolean cellsMatch(int x1, int y1, int x2, int y2){
+//        return;
+//    }
 
-    public int[][] toIds(){
-
-    }
-
-    public boolean[][] toTurned(){
-
-    }
+//    public int[][] toIds(){
+//
+//    }
+//
+//    public boolean[][] toTurned(){
+//
+//    }
 
 
 }

@@ -138,7 +138,7 @@ public class SpelschermView extends BorderPane {
                 gpSpelBord.add(cardButton, row, col);
 
                 // Add to buttonsArrayList
-                buttons.add(cardButton);
+//                buttons.add(cardButton);
             }
         }
     }

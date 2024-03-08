@@ -16,7 +16,7 @@ public class SpelschermPresenter {
     private SpelschermView view;
 
 
-    public SpelschermPresenter(Game game, SpelschermView view) {
+    public SpelschermPresenter(SpelschermView view) {
         this.game = game;
         this.view = view;
         //this.cardValuesMap = new HashMap<>();
@@ -24,7 +24,7 @@ public class SpelschermPresenter {
         //this.initializeMemoryCards();
         this.addEventListnersAfsluiten();
 
-        this.view.showBoard(game.getBoardIds());
+//        this.view.showBoard(game.getBoardIds());
     }
 
     private void addEventListenerMenu() {
