@@ -17,6 +17,7 @@ public class HomeView extends BorderPane {
     private Button btnStartSpel;
     private Image start;
     private Button btnHighscores;
+    private Image highscores;
     private Button btnHandleiding;
     private Image help;
 
@@ -35,11 +36,12 @@ public class HomeView extends BorderPane {
     private void initialiseNodes() {
 
         start = new Image("start.png", 30, 30, true, true);
+        highscores = new Image("highscores.png", 30, 30, true, true);
         help = new Image("help.png", 30, 30, true, true);
 
         txtTitel = new Text("Memory Homepagina");
         btnStartSpel = new Button("Start Spel", new ImageView(start));
-        btnHighscores = new Button("Highscores");
+        btnHighscores = new Button("Highscores", new ImageView(highscores));
         btnHandleiding = new Button("Handleiding", new ImageView(help));
 
         menuHulp = new Menu("Hulp");
@@ -64,7 +66,7 @@ public class HomeView extends BorderPane {
 
     }
 
-    private void setCustomBackground(){
+    private void setCustomBackground() {
         BackgroundImage backgroundImage = new BackgroundImage(new Image("/background.png"),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
                 BackgroundPosition.CENTER, BackgroundSize.DEFAULT);

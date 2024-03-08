@@ -25,6 +25,8 @@ public class Main extends Application {
 //        primaryStage.setFullScreen(true);
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(650);
+        Image icon = new Image("icon.png", 32, 32, true, true);
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
 
     }

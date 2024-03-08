@@ -1,7 +1,6 @@
-/*.root {*/
-/*    -fx-background-image: url("/background.png");*/
-/*    -fx-image: url("../img/icon.png");*/
-/*}*/
+.root {
+    -fx-background-image: url("background.png");
+}
 
 .menu-bar {
     -fx-background-color: #2d2c2c;
