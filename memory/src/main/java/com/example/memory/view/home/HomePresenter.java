@@ -19,8 +19,8 @@ public class HomePresenter {
         this.addEventListnersStartSpel();
         this.addEventListnersHighscores();
         this.addEventListnersHandleiding();
-//        this.addEventListnersAfsluiten();
-//        this.addEventListenersInstellingen();
+        this.addEventListnersAfsluiten();
+        this.addEventListenersInstellingen();
     }
 
     private void addEventListnersStartSpel() {
@@ -53,19 +53,23 @@ public class HomePresenter {
         });
     }
 
-//    private void addEventListnersAfsluiten() {
-//        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-//            System.exit(0);
-//        });
-//    }
-//
-//    private void addEventListenersInstellingen() {
-//        this.view.getInstellingen().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-//            InstellingenView mijnInstellingenView = new InstellingenView();
-//            InstellingenPresenter mijnInstellingenPresenter = new InstellingenPresenter(mijnInstellingenView);
-//
-//            // Fout met verwijzing naar InstellingenView
-////            this.view.getScene().setRoot(mijnInstellingenView);
-//        });
-//    }
+    private void addEventListnersAfsluiten() {
+        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+            System.exit(0);
+        });
+    }
+
+    private void addEventListenersInstellingen() {
+        this.view.getInstellingen().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
+            InstellingenView mijnInstellingenView = new InstellingenView();
+            InstellingenPresenter mijnInstellingenPresenter = new InstellingenPresenter(mijnInstellingenView);
+
+//             Fout met verwijzing naar InstellingenView
+//            this.view.getScene().setRoot(mijnInstellingenView);
+        });
+    }
+
+
+
+
 }

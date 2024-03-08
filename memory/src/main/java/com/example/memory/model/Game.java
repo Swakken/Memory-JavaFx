@@ -31,6 +31,7 @@ public class Game {
 //    public void selecteerCell(int id){
 //        if
 //    }
+<<<<<<< HEAD
 
 
 //    public boolean vergelijkCellen(){
@@ -45,6 +46,25 @@ public class Game {
 //
 //    }
 
+=======
+//
+//    public kanCellenVergelijken(){
+//
+//    }
+//
+//    public boolean vergelijkCellen(){
+//        return board.cellsMatch();
+//    }
+//
+//    public turnCellMatching(int id){
+//        //board.turnMatchingCells(x, y);
+//    }
+//
+//    public int[] getBoardIds(){
+//
+//    }
+//
+>>>>>>> bd9bc97b7e3e45efe5acab99b2826f6b2cccb55b
 //    public boolean[] getBoardTurned(){
 //
 //    }

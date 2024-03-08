@@ -16,7 +16,7 @@ public class SpelschermPresenter {
     private SpelschermView view;
 
 
-    public SpelschermPresenter(Game game, SpelschermView view) {
+    public SpelschermPresenter(SpelschermView view) {
         this.game = game;
         this.view = view;
         //this.cardValuesMap = new HashMap<>();

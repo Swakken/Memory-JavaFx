@@ -33,7 +33,7 @@ public class StartSpelPresenter {
         this.view.getBtnStartSpel().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
 
             SpelschermView mijnSpelschermView = new SpelschermView();
-            SpelschermPresenter mijnSpelschermPresenter = new SpelschermPresenter(mijnSpelschermView);
+//            SpelschermPresenter mijnSpelschermPresenter = new SpelschermPresenter(mijnSpelschermView);
 
             this.view.getScene().setRoot(mijnSpelschermView);
         });
