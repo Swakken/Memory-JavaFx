@@ -22,9 +22,9 @@ public class SpelschermPresenter {
         this.addEventListenerMenu();
         this.addEventListnersAfsluiten();
         this.view.setSpelerNaam(spelerNaam);
-        //this.cardValuesMap = new HashMap<>();
-        //this.initializeMemoryCards();
-        //this.view.showBoard(game.getBoardIds());
+        // this.cardValuesMap = new HashMap<>();
+        // this.initializeMemoryCards();
+        // this.view.showBoard(game.getBoardIds());
     }
 
     private void addEventListenerMenu() {
