@@ -1,5 +1,6 @@
 package com.example.memory.view.spelscherm;
 
+import com.example.memory.model.Cel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -206,6 +207,11 @@ public class SpelschermView extends BorderPane {
             }
         }
         setDierenAfbeeldingen();
+    }
+
+
+    public void VulGridPane(Cel[] bordCellen){
+
     }
 
     public List<Button> getButtons() {

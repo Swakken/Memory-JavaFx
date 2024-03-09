@@ -1,6 +1,7 @@
 package com.example.memory.view.spelscherm;
 
-import com.example.memory.model.Game;
+import com.example.memory.model.Cel;
+import com.example.memory.model.Spel;
 import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;
@@ -11,20 +12,23 @@ import java.util.List;
 
 public class SpelschermPresenter {
 
-    private Game game;
+    private Spel spel;
 
     private SpelschermView view;
 
 
     public SpelschermPresenter(SpelschermView view, String spelerNaam) {
-        this.game = game;
+        this.spel = spel;
         this.view = view;
         this.addEventListenerMenu();
         this.addEventListnersAfsluiten();
         this.view.setSpelerNaam(spelerNaam);
-        // this.cardValuesMap = new HashMap<>();
-        // this.initializeMemoryCards();
-        // this.view.showBoard(game.getBoardIds());
+    }
+
+    private void initialiseerView(){
+        Cel[] cellenArray = spel.getCellenArray();
+        view.VulGridPane(cellenArray);
+
     }
 
     private void addEventListenerMenu() {
@@ -65,6 +69,8 @@ public class SpelschermPresenter {
 
             }
         };
+
+
 
         // Attach to buttons
         for (Button b : buttons) {

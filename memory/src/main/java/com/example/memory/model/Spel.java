@@ -1,38 +1,39 @@
 package com.example.memory.model;
 
-public class Game {
+import com.example.memory.view.spelscherm.SpelschermView;
 
-    private Bord board;
+public class Spel {
+
+    // Constructor
+    public Spel(){maakSpel();}
+
+    private Bord bord;
 
     private int cell1id;
     private int cell2id;
 
-    //    public int[][] getBoard(){
-////        return this.board;
-//    }
 
 
 
 
-    private void createGame() {
+    private void maakSpel() {
 
         cell1id=-1;
         cell2id=-1;
 
-        board = new Bord(4);
+        bord = new Bord(16);
 
 
     }
 
-//    public void selecteerCell(int id){
-//        if
-//    }
+    public Cel[] getCellenArray(){
+        return bord.getCellenArray();
+    }
 
 
 
-//    public boolean vergelijkCellen(){
-//        return board.cellsMatch();
-//    }
+
+//
 
     public void turnCellMatching(int id){
         //board.turnMatchingCells(x, y);

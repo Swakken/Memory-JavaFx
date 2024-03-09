@@ -1,16 +1,13 @@
 package com.example.memory.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 public class Bord {
 
     private int lengte;
 
-    private Cell[] cellenArray;
+    private Cel[] cellenArray;
 
     //Board Constructor
     public Bord(int lengte) {
@@ -20,10 +17,9 @@ public class Bord {
     //Lengte van Bord aanpassen aan meegegeven lengte
     public void setSize(int lengte) {
         this.lengte = lengte;
-        this.cellenArray = new Cell[lengte];
+        this.cellenArray = new Cel[lengte];
         bordOpvullen();
     }
-
 
     private void bordOpvullen() {
         List<Integer> uniekeIDs = new ArrayList<>();
@@ -37,24 +33,36 @@ public class Bord {
         // Kopieer de unieke IDs naar de cellenArray
         for (int i = 0; i < lengte; i++) {
             int randomIndex = (int) (Math.random() * uniekeIDs.size());
-            cellenArray[i] = new Cell(randomIndex);
+            cellenArray[i] = new Cel(randomIndex);
             uniekeIDs.remove(randomIndex);
         }
         shuffleBord();
     }
 
 
-    //Volgorde van cellen randomizen adhv Collections.shuffle
+    // Volgorde van cellen randomizen
     private void shuffleBord() {
-        List<Cell> cellenLijst = new ArrayList<>(List.of(cellenArray));
-        Collections.shuffle(cellenLijst);
-        cellenLijst.toArray(cellenArray);
+        Random random = new Random();
+        // Start bij de laatste cel in de array
+        for (int i = cellenArray.length; i > 0; i--){
+            // Getal genereren tussen 0 en "i"
+            int j = random.nextInt(i + 1);
+
+            Cel tijdenlijk = cellenArray[i];
+            cellenArray[i] = cellenArray[j];
+            cellenArray[j] = tijdenlijk;
+        }
     }
 
 
     public int getLengte() {
         return lengte;
     }
+
+    public Cel[] getCellenArray(){
+        return cellenArray;
+    }
+
 
 
 
