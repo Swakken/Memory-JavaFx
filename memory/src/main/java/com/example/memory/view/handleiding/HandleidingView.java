@@ -33,7 +33,7 @@ public class HandleidingView extends BorderPane {
     private void initialiseNodes() {
         txtTitel = new Text("Memory Handleiding");
         terugButton = new Button("Terug naar Home");
-        intro = new Text("Welkom bij het Memory Spel!");
+        intro = new Text("Welkom bij ons Memory Spel!");
         spelregelsTitel = new Text("Spelregels:");
         spelregels = new Text(
                 "1. Alle kaarten liggen omgekeerd.\n" +
