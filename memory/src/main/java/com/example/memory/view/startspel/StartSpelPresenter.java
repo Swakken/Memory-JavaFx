@@ -32,8 +32,11 @@ public class StartSpelPresenter {
     private void addEventListnersSpelScherm() {
         this.view.getBtnStartSpel().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
 
+            // De ingevulde spelernaam ophalen
+            String spelerNaam = view.getTxtfldSpelerNaam().getText().trim();
+
             SpelschermView mijnSpelschermView = new SpelschermView();
-//            SpelschermPresenter mijnSpelschermPresenter = new SpelschermPresenter(mijnSpelschermView);
+            SpelschermPresenter mijnSpelschermPresenter = new SpelschermPresenter(mijnSpelschermView, spelerNaam);
 
             this.view.getScene().setRoot(mijnSpelschermView);
         });
