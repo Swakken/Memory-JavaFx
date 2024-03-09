@@ -1,18 +1,19 @@
 package com.example.memory.view.spelscherm;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 public class SpelschermView extends BorderPane {
@@ -27,6 +28,7 @@ public class SpelschermView extends BorderPane {
     private Button[][] buttons;
 
     private String[][] dierId;
+    private Map<String, Image> afbeeldingenMap;
 
     private Image imgCardBackground;
 
@@ -36,9 +38,9 @@ public class SpelschermView extends BorderPane {
     //private ImageView imgvwCardBackground;
 
     public SpelschermView() {
-
         initialseNodes();
         layoutNodes();
+        initialiseerAfbeeldingen();
         createGrid();
     }
 
@@ -101,22 +103,67 @@ public class SpelschermView extends BorderPane {
         this.setLeft(txtScore);
     }
 
-
+    // Getters
     public String[][] getDierId() {
         return dierId;
     }
-
     public GridPane getGpSpelBord() {
         return gpSpelBord;
     }
-
     public Button getBtnMenu() {
         return btnMenu;
     }
-
     public MenuItem getAfsluiten() {
         return afsluiten;
     }
+
+
+    // Afbeeldingen van de dieren gelinkt aan de dierId's
+    private void initialiseerAfbeeldingen() {
+        afbeeldingenMap = new HashMap<>();
+        afbeeldingenMap.put("papegaai", new Image("papegaai.png"));
+        afbeeldingenMap.put("toekan", new Image("toekan.png"));
+        afbeeldingenMap.put("mandrill", new Image("mandrill.png"));
+        afbeeldingenMap.put("koala", new Image("koala.png"));
+        afbeeldingenMap.put("panter", new Image("panter.png"));
+        afbeeldingenMap.put("chimpansee", new Image("chimpansee.png"));
+        afbeeldingenMap.put("kikker", new Image("kikker.png"));
+        afbeeldingenMap.put("kameleon", new Image("kameleon.png"));
+    }
+
+    public void setDierenAfbeeldingen() {
+        for (int row = 0; row < buttons.length; row++) {
+            for (int col = 0; col < buttons[row].length; col++) {
+                Button cardButton = buttons[row][col];
+                String dierenId = dierId[col][row];
+                Image afbeelding = afbeeldingenMap.get(dierenId);
+                imgCardBackground = new Image("defaultCardBackground.png");
+                ImageView afbeeldingView = new ImageView(imgCardBackground);
+                afbeeldingView.setFitHeight(100);
+                afbeeldingView.setFitWidth(100);
+                cardButton.setGraphic(afbeeldingView);
+            }
+        }
+    }
+
+    private class KaartClickHandler implements EventHandler<ActionEvent> {
+        private final Button kaartButton;
+
+        public KaartClickHandler(Button kaartButton) {
+            this.kaartButton = kaartButton;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            String dierenId = (String) kaartButton.getUserData();
+            Image afbeelding = afbeeldingenMap.get(dierenId);
+            ImageView afbeeldingView = new ImageView(afbeelding);
+            afbeeldingView.setFitHeight(100);
+            afbeeldingView.setFitWidth(100);
+            kaartButton.setGraphic(afbeeldingView);
+        }
+    }
+
 
 
     private void createGrid() {
@@ -124,44 +171,41 @@ public class SpelschermView extends BorderPane {
         int numRows = 4;
         int numCols = 4;
 
-        // Create new buttons
-        buttons = new Button[numRows][];
+        buttons = new Button[numRows][numCols];
 
         for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+            }
+        }
 
-            buttons[row] = new Button[numCols];
-
+        for (int row = 0; row < numRows; row++) {
             for (int col = 0; col < numCols; col++) {
                 Button cardButton = new Button();
 
-
                 cardButton.setId(row + "-" + col);
+                String dierenId = dierId[col][row];
+                cardButton.setUserData(dierenId);
 
+                // Achtergrond kleur wordt hier aangepast naar het dierenId & de dierenImage
+                Image afbeelding = afbeeldingenMap.get(dierenId);
+                ImageView afbeeldingView = new ImageView(imgCardBackground);
+                afbeeldingView.setFitHeight(100);
+                afbeeldingView.setFitWidth(100);
+
+                cardButton.setGraphic(afbeeldingView);
 
                 cardButton.setPrefSize(100, 100);
                 cardButton.setFont(Font.font("Arial", 13));
                 cardButton.setStyle("-fx-background-color: #ff8e00; -fx-text-fill: white;");
 
+                // Voeg de EventHandler toe aan de knop
+                cardButton.setOnAction(new KaartClickHandler(cardButton));
+
                 buttons[row][col] = cardButton;
-
-//                imgvwCardBackground = new ImageView(imgCardBackground);
-//                imgvwCardBackground.setFitHeight(cardButton.getPrefHeight());
-//                imgvwCardBackground.setFitWidth(cardButton.getPrefWidth());
-
-                //Elke knop een dier toewijzen:
-                //String dierenId = dierId[col][row];
-                //cardButton.setUserData(dierenId);
-
-                //cardButton.setGraphic(imgvwCardBackground);
-
                 gpSpelBord.add(cardButton, row, col);
-
-
-                // Add to buttonsArrayList
-//                buttons.add(cardButton);
-
             }
         }
+        setDierenAfbeeldingen();
     }
 
     public List<Button> getButtons() {
@@ -174,10 +218,6 @@ public class SpelschermView extends BorderPane {
         return lst;
     }
 
-//    private String idToImage(){
-//
-//    }
-
     public void updateTile(int row, int col, int id) {
 
 //        idToImage();
@@ -186,6 +226,8 @@ public class SpelschermView extends BorderPane {
 
     }
 
+
+    // Check if spelerNaam is ingevuld
     public void setSpelerNaam(String naam) {
         if (txtSpelerNaam != null) {
             txtSpelerNaam.setText("Spelernaam: " + naam);
@@ -193,6 +235,4 @@ public class SpelschermView extends BorderPane {
             System.out.println("txtSpelerNaam is null. Kan naam niet instellen.");
         }
     }
-
-
 }
