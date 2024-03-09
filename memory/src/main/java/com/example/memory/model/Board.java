@@ -27,11 +27,11 @@ public class Board {
 
         cellenArray = new Cell[lengte * breedte];
 
-<<<<<<< HEAD
+
         for (int i = 0; i < cellenArray.length; i++)
             cellenArray = new Cell[i];
-=======
-        for (int i = 0; i < cellen.length; i++)
+
+//        for (int i = 0; i < cellen.length; i++)
 
 
 //        cellen = new Cell[lengte][];
@@ -43,7 +43,7 @@ public class Board {
 //                cellen[i][j] = new Cell(j,i);
 //            }
 //        }
->>>>>>> bd9bc97b7e3e45efe5acab99b2826f6b2cccb55b
+
 
         shuffleBoard();
     }
@@ -52,13 +52,13 @@ public class Board {
         // Lijsten van alle cellen
         List<Cell> cellenLijst = new ArrayList<>();
 
-<<<<<<< HEAD
+
         for (Cell rij : cellenArray)
             cellenLijst.addAll(Arrays.asList(rij));
-=======
+
 //        for (Cell[] rij : cellen)
 //            cellenLijst.addAll(Arrays.asList(rij));
->>>>>>> bd9bc97b7e3e45efe5acab99b2826f6b2cccb55b
+
 
         // Shuffelen lijst
         Collections.shuffle(cellenLijst);
@@ -88,17 +88,16 @@ public class Board {
         return breedte;
     }
 
-<<<<<<< HEAD
+
 //    public boolean cellsMatch(){
 //        return;
 //    }
 //
-=======
+
 //    public boolean cellsMatch(int x1, int y1, int x2, int y2){
 //        return;
 //    }
 
->>>>>>> bd9bc97b7e3e45efe5acab99b2826f6b2cccb55b
 //    public int[][] toIds(){
 //
 //    }
