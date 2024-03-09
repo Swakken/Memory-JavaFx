@@ -6,9 +6,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -32,6 +30,8 @@ public class SpelschermView extends BorderPane {
 
     private Image imgCardBackground;
 
+    private Text txtSpelerNaam;
+
 
     //private ImageView imgvwCardBackground;
 
@@ -48,11 +48,13 @@ public class SpelschermView extends BorderPane {
         txtScore = new Text("Score: ");
         gpSpelBord = new GridPane();
 
+        txtSpelerNaam = new Text("Speler: ");
+
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
         instellingen = new MenuItem("Instellingen");
         imgCardBackground = new Image("defaultCardBackground.png");
-        dierId = new String[][] {
+        dierId = new String[][]{
                 {"papegaai", "papegaai", "mandrill", "mandrill"},
                 {"toekan", "toekan", "koala", "koala"},
                 {"panter", "panter", "chimpansee", "chimpansee"},
@@ -66,10 +68,30 @@ public class SpelschermView extends BorderPane {
         btnMenu.setStyle("-fx-background-color: #E76F51; -fx-text-fill: white;");
         txtScore.setFont(Font.font("Arial", 13));
 
+        // HBox voor de spelerNaam
+        HBox topHBox = new HBox();
+        topHBox.setAlignment(Pos.CENTER);
+        topHBox.setSpacing(10);
+        txtSpelerNaam.setFont(Font.font("Arial", 16));
+        txtSpelerNaam.setStyle("-fx-font-weight: bold;");
+        topHBox.getChildren().add(txtSpelerNaam);
+
+        // Aangemaakte MenuBar
+        MenuBar menuBar = new MenuBar();
+        menuHulp.getItems().addAll(afsluiten, instellingen);
+        menuBar.getMenus().add(menuHulp);
+
+        // VBox voor de MenuBar en de spelerNaam
+        VBox topVBox = new VBox(menuBar, topHBox);
+        topVBox.setAlignment(Pos.TOP_CENTER);
+        this.setTop(topVBox);
 
         HBox BottomHBox = new HBox();
         BottomHBox.setAlignment(Pos.BASELINE_RIGHT);
         BottomHBox.getChildren().addAll(btnMenu);
+
+        // Background
+        this.setBackground(new Background(new BackgroundImage(new Image("background.jpg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         this.setBottom(BottomHBox);
 
         gpSpelBord.setAlignment(Pos.CENTER);
@@ -77,10 +99,8 @@ public class SpelschermView extends BorderPane {
         gpSpelBord.setVgap(10);
         this.setCenter(gpSpelBord);
         this.setLeft(txtScore);
-
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        setTop(new MenuBar(menuHulp));
     }
+
 
     public String[][] getDierId() {
         return dierId;
@@ -109,7 +129,7 @@ public class SpelschermView extends BorderPane {
 
         for (int row = 0; row < numRows; row++) {
 
-            buttons[row] =  new Button[numCols];
+            buttons[row] = new Button[numCols];
 
             for (int col = 0; col < numCols; col++) {
                 Button cardButton = new Button();
@@ -122,7 +142,7 @@ public class SpelschermView extends BorderPane {
                 cardButton.setFont(Font.font("Arial", 13));
                 cardButton.setStyle("-fx-background-color: #ff8e00; -fx-text-fill: white;");
 
-                buttons[row][col] =cardButton;
+                buttons[row][col] = cardButton;
 
 //                imgvwCardBackground = new ImageView(imgCardBackground);
 //                imgvwCardBackground.setFitHeight(cardButton.getPrefHeight());
@@ -136,11 +156,10 @@ public class SpelschermView extends BorderPane {
 
                 gpSpelBord.add(cardButton, row, col);
 
-<<<<<<< HEAD
-=======
+
                 // Add to buttonsArrayList
 //                buttons.add(cardButton);
->>>>>>> bd9bc97b7e3e45efe5acab99b2826f6b2cccb55b
+
             }
         }
     }
@@ -159,7 +178,7 @@ public class SpelschermView extends BorderPane {
 //
 //    }
 
-    public void updateTile(int row, int col, int id){
+    public void updateTile(int row, int col, int id) {
 
 //        idToImage();
 
@@ -167,6 +186,13 @@ public class SpelschermView extends BorderPane {
 
     }
 
+    public void setSpelerNaam(String naam) {
+        if (txtSpelerNaam != null) {
+            txtSpelerNaam.setText("Spelernaam: " + naam);
+        } else {
+            System.out.println("txtSpelerNaam is null. Kan naam niet instellen.");
+        }
+    }
 
 
 }
