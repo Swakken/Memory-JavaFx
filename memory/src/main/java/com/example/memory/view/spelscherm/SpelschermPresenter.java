@@ -15,16 +15,17 @@ public class SpelschermPresenter {
 
     private SpelschermView view;
 
+
     public SpelschermPresenter(SpelschermView view, String spelerNaam) {
+        this.game = game;
         this.view = view;
-        this.view.setSpelerNaam(spelerNaam);
         this.addEventListenerMenu();
         this.addEventListnersAfsluiten();
+        this.view.setSpelerNaam(spelerNaam);
         //this.cardValuesMap = new HashMap<>();
         //this.initializeMemoryCards();
         //this.view.showBoard(game.getBoardIds());
     }
-
 
     private void addEventListenerMenu() {
         this.view.getBtnMenu().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
