@@ -42,7 +42,6 @@ public class SpelschermView extends BorderPane {
         initialseNodes();
         layoutNodes();
         initialiseerAfbeeldingen();
-        createGrid();
     }
 
     private void initialseNodes() {
@@ -167,50 +166,62 @@ public class SpelschermView extends BorderPane {
 
 
 
-    private void createGrid() {
+//    private void createGrid() {
+//
+//        int numRows = 4;
+//        int numCols = 4;
+//
+//        buttons = new Button[numRows][numCols];
+//
+//
+//        for (int row = 0; row < numRows; row++) {
+//            for (int col = 0; col < numCols; col++) {
+//                Button cardButton = new Button();
+//
+//                cardButton.setId(row + "-" + col);
+//                String dierenId = dierId[col][row];
+//                cardButton.setUserData(dierenId);
+//
+//                // Achtergrond kleur wordt hier aangepast naar het dierenId & de dierenImage
+//                Image afbeelding = afbeeldingenMap.get(dierenId);
+//                ImageView afbeeldingView = new ImageView(imgCardBackground);
+//                afbeeldingView.setFitHeight(100);
+//                afbeeldingView.setFitWidth(100);
+//
+//                cardButton.setGraphic(afbeeldingView);
+//
+//                cardButton.setPrefSize(100, 100);
+//                cardButton.setFont(Font.font("Arial", 13));
+//                cardButton.setStyle("-fx-background-color: #ff8e00; -fx-text-fill: white;");
+//
+//                // Voeg de EventHandler toe aan de knop
+//                cardButton.setOnAction(new KaartClickHandler(cardButton));
+//
+//                buttons[row][col] = cardButton;
+//                gpSpelBord.add(cardButton, row, col);
+//            }
+//        }
+//        setDierenAfbeeldingen();
+//    }
 
-        int numRows = 4;
-        int numCols = 4;
 
-        buttons = new Button[numRows][numCols];
+    public void vulGridPane(Cel[] bordCellen){
+        int gridGrootte = 4;
 
-        for (int row = 0; row < numRows; row++) {
-            for (int col = 0; col < numCols; col++) {
-            }
+        for (int i = 0; i < bordCellen.length; i++) {
+            Button cardButton = new Button();
+            cardButton.setId("Card" + bordCellen[i].getId());
+
+
+            // knop toevoegen aan gridPane
+            int kolom = i / gridGrootte;
+            int rij = i % gridGrootte;
+            gpSpelBord.add(cardButton, rij, kolom);
+
+
         }
 
-        for (int row = 0; row < numRows; row++) {
-            for (int col = 0; col < numCols; col++) {
-                Button cardButton = new Button();
 
-                cardButton.setId(row + "-" + col);
-                String dierenId = dierId[col][row];
-                cardButton.setUserData(dierenId);
-
-                // Achtergrond kleur wordt hier aangepast naar het dierenId & de dierenImage
-                Image afbeelding = afbeeldingenMap.get(dierenId);
-                ImageView afbeeldingView = new ImageView(imgCardBackground);
-                afbeeldingView.setFitHeight(100);
-                afbeeldingView.setFitWidth(100);
-
-                cardButton.setGraphic(afbeeldingView);
-
-                cardButton.setPrefSize(100, 100);
-                cardButton.setFont(Font.font("Arial", 13));
-                cardButton.setStyle("-fx-background-color: #ff8e00; -fx-text-fill: white;");
-
-                // Voeg de EventHandler toe aan de knop
-                cardButton.setOnAction(new KaartClickHandler(cardButton));
-
-                buttons[row][col] = cardButton;
-                gpSpelBord.add(cardButton, row, col);
-            }
-        }
-        setDierenAfbeeldingen();
-    }
-
-
-    public void VulGridPane(Cel[] bordCellen){
 
     }
 

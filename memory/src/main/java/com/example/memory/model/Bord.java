@@ -9,7 +9,7 @@ public class Bord {
 
     private Cel[] cellenArray;
 
-    //Board Constructor
+    //Bord Constructor
     public Bord(int lengte) {
         setSize(lengte);
     }

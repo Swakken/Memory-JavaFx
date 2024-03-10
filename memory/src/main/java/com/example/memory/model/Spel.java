@@ -22,8 +22,6 @@ public class Spel {
         cell2id=-1;
 
         bord = new Bord(16);
-
-
     }
 
     public Cel[] getCellenArray(){

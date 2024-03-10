@@ -18,17 +18,17 @@ public class SpelschermPresenter {
 
 
     public SpelschermPresenter(SpelschermView view, String spelerNaam) {
-        this.spel = spel;
+        this.spel = new Spel();
         this.view = view;
         this.addEventListenerMenu();
         this.addEventListnersAfsluiten();
         this.view.setSpelerNaam(spelerNaam);
+        this.initialiseerView();
     }
 
     private void initialiseerView(){
         Cel[] cellenArray = spel.getCellenArray();
-        view.VulGridPane(cellenArray);
-
+        view.vulGridPane(cellenArray);
     }
 
     private void addEventListenerMenu() {
