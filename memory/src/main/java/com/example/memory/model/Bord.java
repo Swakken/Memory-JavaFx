@@ -34,7 +34,7 @@ public class Bord {
         for (int i = 0; i < lengte; i++) {
             int randomIndex = (int) (Math.random() * uniekeIDs.size());
             cellenArray[i] = new Cel(randomIndex);
-            uniekeIDs.remove(randomIndex);
+            uniekeIDs.remove(uniekeIDs.get(randomIndex));
         }
         shuffleBord();
     }
@@ -44,13 +44,13 @@ public class Bord {
     private void shuffleBord() {
         Random random = new Random();
         // Start bij de laatste cel in de array
-        for (int i = cellenArray.length; i > 0; i--){
+        for (int i = cellenArray.length - 1; i > 0; i--){
             // Getal genereren tussen 0 en "i"
             int j = random.nextInt(i + 1);
 
-            Cel tijdenlijk = cellenArray[i];
+            Cel tijdelijk = cellenArray[i];
             cellenArray[i] = cellenArray[j];
-            cellenArray[j] = tijdenlijk;
+            cellenArray[j] = tijdelijk;
         }
     }
 

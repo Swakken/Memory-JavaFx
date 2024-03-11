@@ -210,6 +210,7 @@ public class SpelschermView extends BorderPane {
 
         for (int i = 0; i < bordCellen.length; i++) {
             Button cardButton = new Button();
+            cardButton.setPrefSize(100,100);
             cardButton.setId("Card" + bordCellen[i].getId());
 
 
@@ -217,8 +218,6 @@ public class SpelschermView extends BorderPane {
             int kolom = i / gridGrootte;
             int rij = i % gridGrootte;
             gpSpelBord.add(cardButton, rij, kolom);
-
-
         }
 
 
