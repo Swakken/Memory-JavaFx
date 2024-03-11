@@ -209,15 +209,14 @@ public class SpelschermView extends BorderPane {
         int gridGrootte = 4;
 
         for (int i = 0; i < bordCellen.length; i++) {
-            Button cardButton = new Button();
-            cardButton.setPrefSize(100,100);
-            cardButton.setId("Card" + bordCellen[i].getId());
-
+            Button kaartButton = new Button();
+            kaartButton.setPrefSize(100,100);
+            kaartButton.setId("Card" + bordCellen[i].getId());
 
             // knop toevoegen aan gridPane
             int kolom = i / gridGrootte;
             int rij = i % gridGrootte;
-            gpSpelBord.add(cardButton, rij, kolom);
+            gpSpelBord.add(kaartButton, rij, kolom);
         }
 
 

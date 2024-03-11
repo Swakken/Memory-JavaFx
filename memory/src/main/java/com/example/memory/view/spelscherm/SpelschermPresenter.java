@@ -45,6 +45,8 @@ public class SpelschermPresenter {
         });
     }
 
+
+
     private void addEventListenersButtons(){
         List<Button> buttons = this.view.getButtons();
         // Create an event handle
