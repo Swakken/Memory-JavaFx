@@ -75,8 +75,13 @@ public class StartSpelView extends BorderPane {
         MainVBox.getChildren().addAll(hoofdingVBox, spelerNaamHBox, buttonHBox);
         MainVBox.setAlignment(Pos.CENTER);
 
-
-        MainVBox.setBackground(new Background(new BackgroundImage(new Image("background.jpg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
+        MainVBox.setBackground(new Background(new BackgroundImage(
+                new Image("background.jpg"),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(100, 100, true, true, false, true)
+        )));
 
         txtStartSpel.setId("txtTitel");
         setCenter(MainVBox);

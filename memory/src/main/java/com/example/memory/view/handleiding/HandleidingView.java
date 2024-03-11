@@ -66,7 +66,13 @@ public class HandleidingView extends BorderPane {
         MainVBox.setAlignment(Pos.CENTER);
 
 
-        MainVBox.setBackground(new Background(new BackgroundImage(new Image("background.jpg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
+        MainVBox.setBackground(new Background(new BackgroundImage(
+                new Image("background.jpg"),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(100, 100, true, true, false, true)
+        )));
 
         txtTitel.setId("txtTitel");
         setCenter(MainVBox);

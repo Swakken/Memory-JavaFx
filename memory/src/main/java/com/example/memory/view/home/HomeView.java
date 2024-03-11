@@ -58,10 +58,13 @@ public class HomeView extends BorderPane {
         buttonVBox.setAlignment(Pos.CENTER);
         buttonVBox.setSpacing(10);
 
-        // Optie 1
-        buttonVBox.setBackground(new Background(new BackgroundImage(new Image("background.jpg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
-        // Optie 2
-        //buttonVBox.setBackground(new Background(new BackgroundImage(new Image("background2.jpeg"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT )));
+        buttonVBox.setBackground(new Background(new BackgroundImage(
+                new Image("background.jpg"),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(100, 100, true, true, false, true)
+        )));
 
         setCenter(buttonVBox);
 
