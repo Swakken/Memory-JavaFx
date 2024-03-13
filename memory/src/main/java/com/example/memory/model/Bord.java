@@ -65,25 +65,4 @@ public class Bord {
         return cellenArray;
     }
 
-
-
-
-//    public boolean cellsMatch(){
-//        return;
-//    }
-//
-
-//    public boolean cellsMatch(int x1, int y1, int x2, int y2){
-//        return;
-//    }
-
-//    public int[][] toIds(){
-//
-//    }
-//
-//    public boolean[][] toTurned(){
-//
-//    }
-
-
 }
