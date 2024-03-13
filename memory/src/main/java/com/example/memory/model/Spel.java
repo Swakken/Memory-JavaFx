@@ -9,17 +9,9 @@ public class Spel {
 
     private Bord bord;
 
-    private int cell1id;
-    private int cell2id;
-
-
-
 
 
     private void maakSpel() {
-
-        cell1id=-1;
-        cell2id=-1;
 
         bord = new Bord(16);
     }

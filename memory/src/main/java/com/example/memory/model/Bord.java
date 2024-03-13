@@ -30,11 +30,13 @@ public class Bord {
             uniekeIDs.add(i);
         }
 
+        List<Integer> uniekeIDsCopy = new ArrayList<>(uniekeIDs); // Create a copy
+
         // Kopieer de unieke IDs naar de cellenArray
         for (int i = 0; i < lengte; i++) {
-            int randomIndex = (int) (Math.random() * uniekeIDs.size());
-            cellenArray[i] = new Cel(randomIndex);
-            uniekeIDs.remove(uniekeIDs.get(randomIndex));
+            int randomIndex = (int) (Math.random() * uniekeIDsCopy.size());
+            cellenArray[i] = new Cel(uniekeIDsCopy.get(randomIndex)); // Use the copy
+            uniekeIDsCopy.remove(randomIndex); // Remove from the copy
         }
         shuffleBord();
     }

@@ -47,38 +47,50 @@ public class SpelschermPresenter {
 
 
 
-    private void addEventListenersButtons(){
-        List<Button> buttons = this.view.getButtons();
-        // Create an event handle
-        EventHandler<ActionEvent> handler = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Button button = (Button) event.getSource();
-                String[] split = button.getId().split("-");
-
-                int row = Integer.parseInt(split[0]);
-                int col = Integer.parseInt(split[1]);
+//    public void handleKaartClick(Button button){
+//        view.draaiKaart(button);
+//
+//
+//
+//    };
 
 
 
-                // Communiceren met model
-
-                // Ophalen id van
-                int cellId = 1;
-
-                // Update tile
-                view.updateTile(row, col, cellId);
-
-            }
-        };
 
 
 
-        // Attach to buttons
-        for (Button b : buttons) {
-            b.addEventHandler(ActionEvent.ACTION, handler);
-        }
+//    private void addEventListenersButtons(){
+//        List<Button> buttons = this.view.getButtons();
+//        // Create an event handle
+//        EventHandler<ActionEvent> handler = new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                Button button = (Button) event.getSource();
+//                String[] split = button.getId().split("-");
+//
+//                int row = Integer.parseInt(split[0]);
+//                int col = Integer.parseInt(split[1]);
+//
+//
+//
+//                // Communiceren met model
+//
+//                // Ophalen id van
+//                int cellId = 1;
+//
+//                // Update tile
+//                view.updateTile(row, col, cellId);
+//
+//            }
+//        };
+//
+//
+//
+//        // Attach to buttons
+//        for (Button b : buttons) {
+//            b.addEventHandler(ActionEvent.ACTION, handler);
+//        }
 
     }
 
-}
+
