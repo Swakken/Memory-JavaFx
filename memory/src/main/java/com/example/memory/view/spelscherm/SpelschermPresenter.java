@@ -13,7 +13,6 @@ import java.util.List;
 public class SpelschermPresenter {
 
     private Spel spel;
-
     private SpelschermView view;
 
 
