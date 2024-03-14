@@ -1,6 +1,7 @@
 package com.example.memory.view.spelscherm;
 
 import com.example.memory.model.Cel;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
@@ -27,17 +28,21 @@ public class SpelschermView extends BorderPane {
     private Map<String, Image> afbeeldingenMap;
     private Image imgCardBackground;
 
-    private SpelschermPresenter presenter;
-
     private Text txtSpelerNaam;
 
+    // Toont het aantal geselecteerde kaarten
+    private List<Button> geselecteerdeKaarten;
 
-    //private ImageView imgvwCardBackground;
+    // Toont de score bij juist omgedraaide kaarten
+    private int score;
+
 
     public SpelschermView() {
         initialseNodes();
         layoutNodes();
         initialiseerAfbeeldingen();
+        geselecteerdeKaarten = new ArrayList<>();
+        score = 0;
     }
 
     private void initialseNodes() {
@@ -100,13 +105,14 @@ public class SpelschermView extends BorderPane {
     }
 
     // Getters
-
     public GridPane getGpSpelBord() {
         return gpSpelBord;
     }
+
     public Button getBtnMenu() {
         return btnMenu;
     }
+
     public MenuItem getAfsluiten() {
         return afsluiten;
     }
@@ -125,89 +131,15 @@ public class SpelschermView extends BorderPane {
         afbeeldingenMap.put("kameleon", new Image("2.png"));
     }
 
-//    public void setDierenAfbeeldingen() {
-//        for (int row = 0; row < buttons.length; row++) {
-//            for (int col = 0; col < buttons[row].length; col++) {
-//                Button cardButton = buttons[row][col];
-//                String dierenId = dierId[col][row];
-//                Image afbeelding = afbeeldingenMap.get(dierenId);
-//                imgCardBackground = new Image("defaultCardBackground.png");
-//                ImageView afbeeldingView = new ImageView(imgCardBackground);
-//                afbeeldingView.setFitHeight(100);
-//                afbeeldingView.setFitWidth(100);
-//                cardButton.setGraphic(afbeeldingView);
-//            }
-//        }
-//    }
-
-//    private class KaartClickHandler implements EventHandler<ActionEvent> {
-//        private final Button kaartButton;
-//
-//        public KaartClickHandler(Button kaartButton) {
-//            this.kaartButton = kaartButton;
-//        }
-//
-//        @Override
-//        public void handle(ActionEvent event) {
-//            String dierenId = (String) kaartButton.getUserData();
-//            Image afbeelding = afbeeldingenMap.get(dierenId);
-//            ImageView afbeeldingView = new ImageView(afbeelding);
-//            afbeeldingView.setFitHeight(100);
-//            afbeeldingView.setFitWidth(100);
-//            kaartButton.setGraphic(afbeeldingView);
-//        }
-//    }
-
-
-
-//    private void createGrid() {
-//
-//        int numRows = 4;
-//        int numCols = 4;
-//
-//        buttons = new Button[numRows][numCols];
-//
-//
-//        for (int row = 0; row < numRows; row++) {
-//            for (int col = 0; col < numCols; col++) {
-//                Button cardButton = new Button();
-//
-//                cardButton.setId(row + "-" + col);
-//                String dierenId = dierId[col][row];
-//                cardButton.setUserData(dierenId);
-//
-//                // Achtergrond kleur wordt hier aangepast naar het dierenId & de dierenImage
-//                Image afbeelding = afbeeldingenMap.get(dierenId);
-//                ImageView afbeeldingView = new ImageView(imgCardBackground);
-//                afbeeldingView.setFitHeight(100);
-//                afbeeldingView.setFitWidth(100);
-//
-//                cardButton.setGraphic(afbeeldingView);
-//
-//                cardButton.setPrefSize(100, 100);
-//                cardButton.setFont(Font.font("Arial", 13));
-//                cardButton.setStyle("-fx-background-color: #ff8e00; -fx-text-fill: white;");
-//
-//                // Voeg de EventHandler toe aan de knop
-//                cardButton.setOnAction(new KaartClickHandler(cardButton));
-//
-//                buttons[row][col] = cardButton;
-//                gpSpelBord.add(cardButton, row, col);
-//            }
-//        }
-//        setDierenAfbeeldingen();
-//    }
-
-
-    public void vulGridPane(Cel[] bordCellen){
+    // Zorgt voor een gevulde Gridpane
+    public void vulGridPane(Cel[] bordCellen) {
         int gridGrootte = 4;
 
         for (int i = 0; i < bordCellen.length; i++) {
             Button kaartButton = new Button();
-            kaartButton.setPrefSize(100,100);
+            kaartButton.setPrefSize(100, 100);
             kaartButton.setUserData(bordCellen[i].getId());
 
-            // knop toevoegen aan gridPane
             int kolom = i / gridGrootte;
             int rij = i % gridGrootte;
             gpSpelBord.add(kaartButton, rij, kolom);
@@ -215,23 +147,61 @@ public class SpelschermView extends BorderPane {
             ImageView imgvwAchtergrond = new ImageView(imgCardBackground);
             kaartButton.setGraphic(imgvwAchtergrond);
 
-
             kaartButton.setOnAction(event -> draaiKaart(kaartButton));
         }
     }
 
-    public void draaiKaart(Button button){
-        int kaartId = (int)button.getUserData();
-        String afbeeldingsNaam = kaartId + ".png";
-        ImageView imgvwAfbeelding = new ImageView(new Image(afbeeldingsNaam));
-        imgvwAfbeelding.setFitWidth(100);
-        imgvwAfbeelding.setFitHeight(100);
+    // Functie wanneer de kaarten worden omgeraaid
+    public void draaiKaart(Button geselecteerdeKaartbutton) {
+        if (geselecteerdeKaarten.size() < 2) {
+            // Kaart wordt toegevoegd aan de lijst met geselecteerde kaarten
+            geselecteerdeKaarten.add(geselecteerdeKaartbutton);
 
+            int kaartId = (int) geselecteerdeKaartbutton.getUserData();
+            String afbeeldingsNaam = kaartId + ".png";
+            ImageView imgvwAfbeelding = new ImageView(new Image(afbeeldingsNaam));
+            imgvwAfbeelding.setFitWidth(100);
+            imgvwAfbeelding.setFitHeight(100);
 
+            geselecteerdeKaartbutton.setGraphic(imgvwAfbeelding);
 
-        button.setGraphic(imgvwAfbeelding);
+            // Kijk of 2 kaarten hetzelfde zijn, als ze zijn omgedraaid
+            if (geselecteerdeKaarten.size() == 2) {
+                Button eersteKaart = geselecteerdeKaarten.get(0);
+                Button tweedeKaart = geselecteerdeKaarten.get(1);
 
+                if (eersteKaart.getUserData().equals(tweedeKaart.getUserData())) {
+                    // De kaarten zijn hetzelfde, laat ze omgedraaid liggen
+                    // Verhoog de score met 1
+                    score++;
+                    txtScore.setText("Score: " + score);
+                    // Wis de lijst met geselecteerde kaarten
+                    geselecteerdeKaarten.clear();
+                } else {
+                    // De kaarten zijn niet hetzelfde, draai ze na 1 seconde terug om
+                    Timer timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Platform.runLater(() -> {
+                                for (Button kaart : geselecteerdeKaarten) {
+                                    ImageView achtergrond = new ImageView(imgCardBackground);
+                                    achtergrond.setFitWidth(100);
+                                    achtergrond.setFitHeight(100);
+                                    kaart.setGraphic(achtergrond);
+                                }
+                                // Wis de lijst met geselecteerde kaarten
+                                geselecteerdeKaarten.clear();
+                            });
+                        }
+                    }, 1000); // 1000 milliseconds = 1 seconde
+//
+                }
+            }
+        }
     }
+
+
 
 
 
