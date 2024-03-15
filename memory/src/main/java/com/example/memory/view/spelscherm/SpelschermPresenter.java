@@ -8,12 +8,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SpelschermPresenter {
 
     private Spel spel;
     private SpelschermView view;
+
 
 
     public SpelschermPresenter(SpelschermView view, String spelerNaam) {
@@ -23,6 +25,7 @@ public class SpelschermPresenter {
         this.addEventListnersAfsluiten();
         this.view.setSpelerNaam(spelerNaam);
         this.initialiseerView();
+        this.addEventHandlersKaartButton();
     }
 
     private void initialiseerView(){
@@ -44,14 +47,49 @@ public class SpelschermPresenter {
         });
     }
 
+    private void addEventHandlersKaartButton(){
+
+        // Alle kaart knoppen opvragen
+        List<Button> kaartKnoppen = view.getKaartKnoppen();
+
+        // Event handler kaart knop
+        EventHandler<ActionEvent> kaartKnopEvent = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                // Geselecteerde knop
+                Button button = (Button) event.getSource();
+                int id = (int)button.getUserData();
+
+                // Geselecteerde knop draaien
+                view.draaiKaart(button);
+
+                // Communiceren met model
+                spel.vergelijkKaarten(id);
+
+                if (spel.vergelijkKaarten(id)){
+                    // Updaten view
 
 
-//    public void handleKaartClick(Button button){
-//        view.draaiKaart(button);
-//
-//
-//
-//    };
+                }
+
+
+
+            }
+        };
+
+        // Loopen door lijst
+        for(Button button : kaartKnoppen)
+            button.setOnAction(kaartKnopEvent);
+
+    }
+
+    public void handleKaartClick(Button button){
+        view.draaiKaart(button);
+
+
+
+    };
 
 
 
