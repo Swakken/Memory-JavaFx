@@ -171,6 +171,10 @@ public class SpelschermView extends BaseView {
                 iterator.remove();
             }
         }
+        // Punt geven voor de match
+        score++;
+        // Weergave van de score updaten
+        txtScore.setText("Score: " + score);
     }
 
     public void draaiTerugOm(int eersteId, int tweedeId) {
@@ -186,105 +190,6 @@ public class SpelschermView extends BaseView {
         }
     }
 
-
-
-
-    // Functie wanneer de kaarten worden omgeraaid
-    public void draaiKaart(Button geselecteerdeKaartbutton) {
-        if (geselecteerdeKaarten.size() < 2) {
-            // Kaart wordt toegevoegd aan de lijst met geselecteerde kaarten
-            geselecteerdeKaarten.add(geselecteerdeKaartbutton);
-
-            int kaartId = (int) geselecteerdeKaartbutton.getUserData();
-            String afbeeldingsNaam = kaartId + ".png";
-            ImageView imgvwAfbeelding = new ImageView(new Image(afbeeldingsNaam));
-            imgvwAfbeelding.setFitWidth(100);
-            imgvwAfbeelding.setFitHeight(100);
-
-            geselecteerdeKaartbutton.setGraphic(imgvwAfbeelding);
-
-            // Kijk of 2 kaarten hetzelfde zijn, als ze zijn omgedraaid
-            if (geselecteerdeKaarten.size() == 2) {
-                Button eersteKaart = geselecteerdeKaarten.get(0);
-                Button tweedeKaart = geselecteerdeKaarten.get(1);
-
-                // De kaarten zijn hetzelfde, laat ze omgedraaid liggen
-                if (eersteKaart.getUserData().equals(tweedeKaart.getUserData())) {
-                    // Verhoog de score met 1
-                    score++;
-                    txtScore.setText("Score: " + score);
-                    // Wis de lijst met geselecteerde kaarten
-                    geselecteerdeKaarten.clear();
-                } else {
-                    // De kaarten zijn niet hetzelfde, draai ze na 1 seconde terug om
-                    Timer timer = new Timer();
-                    timer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            Platform.runLater(() -> {
-                                for (Button kaart : geselecteerdeKaarten) {
-                                    ImageView achtergrond = new ImageView(imgCardBackground);
-                                    achtergrond.setFitWidth(100);
-                                    achtergrond.setFitHeight(100);
-                                    kaart.setGraphic(achtergrond);
-                                }
-                                // Wis de lijst met geselecteerde kaarten
-                                geselecteerdeKaarten.clear();
-                            });
-                        }
-                    }, 1000); // 1000 milliseconds = 1 seconde
-                }
-            }
-        }
-    }
-//    public void draaiKaart(Button geselecteerdeKaartbutton) {
-//        if (geselecteerdeKaarten.size() < 2) {
-//            // Kaart wordt toegevoegd aan de lijst met geselecteerde kaarten
-//            geselecteerdeKaarten.add(geselecteerdeKaartbutton);
-//
-//            int kaartId = (int) geselecteerdeKaartbutton.getUserData();
-//            String afbeeldingsNaam = kaartId + ".png";
-//            ImageView imgvwAfbeelding = new ImageView(new Image(afbeeldingsNaam));
-//            imgvwAfbeelding.setFitWidth(100);
-//            imgvwAfbeelding.setFitHeight(100);
-//
-//            geselecteerdeKaartbutton.setGraphic(imgvwAfbeelding);
-//
-//            // Kijk of 2 kaarten hetzelfde zijn, als ze zijn omgedraaid
-//            if (geselecteerdeKaarten.size() == 2) {
-//                Button eersteKaart = geselecteerdeKaarten.get(0);
-//                Button tweedeKaart = geselecteerdeKaarten.get(1);
-//
-//                if (eersteKaart.getUserData().equals(tweedeKaart.getUserData())) {
-//                    // De kaarten zijn hetzelfde, laat ze omgedraaid liggen
-//                    // Verhoog de score met 1
-//                    score++;
-//                    txtScore.setText("Score: " + score);
-//                    // Wis de lijst met geselecteerde kaarten
-//                    geselecteerdeKaarten.clear();
-//                } else {
-//                    // De kaarten zijn niet hetzelfde, draai ze na 1 seconde terug om
-//                    Timer timer = new Timer();
-//                    timer.schedule(new TimerTask() {
-//                        @Override
-//                        public void run() {
-//                            Platform.runLater(() -> {
-//                                for (Button kaart : geselecteerdeKaarten) {
-//                                    ImageView achtergrond = new ImageView(imgCardBackground);
-//                                    achtergrond.setFitWidth(100);
-//                                    achtergrond.setFitHeight(100);
-//                                    kaart.setGraphic(achtergrond);
-//                                }
-//                                // Wis de lijst met geselecteerde kaarten
-//                                geselecteerdeKaarten.clear();
-//                            });
-//                        }
-//                    }, 1000); // 1000 milliseconds = 1 seconde
-////
-//                }
-//            }
-//        }
-//    }
 
     // Check if spelerNaam is ingevuld
     public void setSpelerNaam(String naam) {
