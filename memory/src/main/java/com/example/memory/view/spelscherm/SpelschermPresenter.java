@@ -7,9 +7,13 @@ import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 
 import java.util.List;
+import java.util.Optional;
 
 public class SpelschermPresenter extends BasePresenter<SpelschermView> {
 
@@ -33,18 +37,27 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
     }
 
     private void addEventListenerMenu() {
-        this.view.getBtnMenu().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-            HomeView mijnHomeView = new HomeView();
-            HomePresenter mijnHomePresenter = new HomePresenter(mijnHomeView);
-            this.view.getScene().setRoot(mijnHomeView);
+        this.view.getBtnMenu().addEventHandler(ActionEvent.ACTION, actionEvent -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Spel Afsluiten");
+            alert.setHeaderText("Weet je zeker dat je het spel wilt afsluiten?");
+            alert.setContentText("Je vooruitgang zal verloren gaan!");
+
+            ButtonType jaButton = new ButtonType("Ja", ButtonBar.ButtonData.OK_DONE);
+            ButtonType cancelButton = new ButtonType("Annuleren", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(jaButton, cancelButton);
+
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/styleheets/alert.css").toExternalForm());
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == jaButton) {
+                HomeView mijnHomeView = new HomeView();
+                HomePresenter mijnHomePresenter = new HomePresenter(mijnHomeView);
+                this.view.getScene().setRoot(mijnHomeView);
+            }
         });
     }
 
-    private void addEventListnersAfsluiten() {
-        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-            System.exit(0);
-        });
-    }
 
     private void addEventHandlersKaartButton() {
 
@@ -82,40 +95,4 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
             button.setOnAction(kaartKnopEvent);
 
     }
-
-
-//    private void addEventListenersButtons(){
-//        List<Button> buttons = this.view.getButtons();
-//        // Create an event handle
-//        EventHandler<ActionEvent> handler = new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                Button button = (Button) event.getSource();
-//                String[] split = button.getId().split("-");
-//
-//                int row = Integer.parseInt(split[0]);
-//                int col = Integer.parseInt(split[1]);
-//
-//
-//
-//                // Communiceren met model
-//
-//                // Ophalen id van
-//                int cellId = 1;
-//
-//                // Update tile
-//                view.updateTile(row, col, cellId);
-//
-//            }
-//        };
-//
-//
-//
-//        // Attach to buttons
-//        for (Button b : buttons) {
-//            b.addEventHandler(ActionEvent.ACTION, handler);
-//        }
-
 }
-
-

@@ -32,9 +32,6 @@ public class SpelschermView extends BaseView {
 
     private Text txtSpelerNaam;
 
-    // Toont het aantal geselecteerde kaarten
-    private List<Button> geselecteerdeKaarten;
-
     // Alle kaart knoppen
     private List<Button> alleKaartKnoppen;
 
@@ -47,7 +44,6 @@ public class SpelschermView extends BaseView {
         initialseNodes();
         layoutNodes();
         initialiseerAfbeeldingen();
-        geselecteerdeKaarten = new ArrayList<>();
         alleKaartKnoppen = new ArrayList<>();
         score = 0;
     }
@@ -163,21 +159,29 @@ public class SpelschermView extends BaseView {
     }
 
     public void verwijderMatch(int id) {
-        Iterator<Button> iterator = alleKaartKnoppen.iterator();
-        while (iterator.hasNext()) {
-            Button button = iterator.next();
-            int buttonId = (int) button.getUserData();
+        List<Button> teVerwijderenKnoppen = new ArrayList<>();
+
+        // Zoek naar de knoppen die overeenkomen met het opgegeven ID
+        for (Button knop : alleKaartKnoppen) {
+            int buttonId = (int) knop.getUserData();
             if (buttonId == id) {
-                // Verwijder de knop uit de gridPane
-                gpSpelBord.getChildren().remove(button);
-                // Verwijder de knop van de knoppenLijst
-                iterator.remove();
+                draaiKaart(knop);
+                teVerwijderenKnoppen.add(knop);
             }
         }
-        // Punt geven voor de match
-        score++;
-        // Weergave van de score updaten
-        txtScore.setText("Score: " + score);
+
+        // Wacht 0.5 seconden voordat de kaarten worden verwijderd
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), event -> {
+            for (Button knop : teVerwijderenKnoppen) {
+                gpSpelBord.getChildren().remove(knop);
+                alleKaartKnoppen.remove(knop);
+            }
+            // Punt geven voor de match
+            score++;
+            // Weergave van de score updaten
+            txtScore.setText("Score: " + score);
+        }));
+        timeline.play();
     }
 
     public void draaiTerugOm(int eersteId, int tweedeId) {
