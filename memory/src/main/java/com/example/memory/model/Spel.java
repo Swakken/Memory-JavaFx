@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Spel {
     private ArrayList<Integer> omgedraaideKaarten;
+    private int eersteId;
+    private int tweedeId;
 
     // Constructor
     public Spel() {
@@ -28,19 +30,23 @@ public class Spel {
 
     public boolean vergelijkKaarten(int id) {
         omgedraaideKaarten.add(id);
+        boolean match = false;
         if (omgedraaideKaarten.size() == 2) {
-            int eersteId = omgedraaideKaarten.get(0);
-            int tweedeId = omgedraaideKaarten.get(1);
+            eersteId = omgedraaideKaarten.get(0);
+            tweedeId = omgedraaideKaarten.get(1);
             // Logica om te vergelijken
-            if (eersteId == tweedeId){
-                omgedraaideKaarten.clear();
-                return true;
-            }
-            else {
-                omgedraaideKaarten.clear();
-                return false;
-            }
+            match = (eersteId == tweedeId);
+            omgedraaideKaarten.clear();
         }
+        return match;
+    }
+
+    public int getEersteId() {
+        return eersteId;
+    }
+
+    public int getTweedeId() {
+        return tweedeId;
     }
 
     ;
