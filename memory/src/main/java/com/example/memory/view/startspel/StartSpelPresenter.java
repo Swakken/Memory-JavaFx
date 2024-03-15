@@ -1,7 +1,6 @@
 package com.example.memory.view.startspel;
 
-import com.example.memory.base.BasePresenter;
-import com.example.memory.view.highscores.HighscoresView;
+import com.example.memory.view.base.BasePresenter;
 import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import com.example.memory.view.spelscherm.SpelschermPresenter;

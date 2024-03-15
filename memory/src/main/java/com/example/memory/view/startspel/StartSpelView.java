@@ -1,6 +1,6 @@
 package com.example.memory.view.startspel;
 
-import com.example.memory.base.BaseView;
+import com.example.memory.view.base.BaseView;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;

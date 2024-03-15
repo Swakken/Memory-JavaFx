@@ -1,6 +1,6 @@
 package com.example.memory.view.highscores;
 
-import com.example.memory.base.BasePresenter;
+import com.example.memory.view.base.BasePresenter;
 import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;

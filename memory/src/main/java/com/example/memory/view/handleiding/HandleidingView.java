@@ -1,14 +1,10 @@
 package com.example.memory.view.handleiding;
 
-import com.example.memory.base.BaseView;
+import com.example.memory.view.base.BaseView;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 

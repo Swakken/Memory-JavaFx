@@ -1,6 +1,6 @@
 package com.example.memory.view.spelscherm;
 
-import com.example.memory.base.BasePresenter;
+import com.example.memory.view.base.BasePresenter;
 import com.example.memory.model.Cel;
 import com.example.memory.model.Spel;
 import com.example.memory.view.home.HomePresenter;

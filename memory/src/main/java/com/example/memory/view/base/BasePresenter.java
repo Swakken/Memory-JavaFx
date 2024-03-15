@@ -1,6 +1,5 @@
-package com.example.memory.base;
+package com.example.memory.view.base;
 
-import com.example.memory.base.BaseView;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;

@@ -5,6 +5,7 @@ import com.example.memory.view.spelscherm.SpelschermView;
 import java.util.ArrayList;
 
 public class Spel {
+
     private ArrayList<Integer> omgedraaideKaarten;
     private int eersteId;
     private int tweedeId;

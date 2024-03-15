@@ -1,16 +1,12 @@
 package com.example.memory.view.spelscherm;
 
-import com.example.memory.base.BaseView;
+import com.example.memory.view.base.BaseView;
 import com.example.memory.model.Cel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;

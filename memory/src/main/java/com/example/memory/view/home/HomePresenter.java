@@ -1,12 +1,10 @@
 package com.example.memory.view.home;
 
-import com.example.memory.base.BasePresenter;
+import com.example.memory.view.base.BasePresenter;
 import com.example.memory.view.handleiding.HandleidingPresenter;
 import com.example.memory.view.handleiding.HandleidingView;
 import com.example.memory.view.highscores.HighscoresPresenter;
 import com.example.memory.view.highscores.HighscoresView;
-import com.example.memory.view.instellingen.InstellingenPresenter;
-import com.example.memory.view.instellingen.InstellingenView;
 import com.example.memory.view.startspel.StartSpelPresenter;
 import com.example.memory.view.startspel.StartSpelView;
 import javafx.event.ActionEvent;

@@ -1,4 +1,4 @@
-package com.example.memory.base;
+package com.example.memory.view.base;
 
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;

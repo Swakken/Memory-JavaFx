@@ -1,11 +1,8 @@
 package com.example.memory.view.home;
 
-import com.example.memory.base.BaseView;
+import com.example.memory.view.base.BaseView;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
