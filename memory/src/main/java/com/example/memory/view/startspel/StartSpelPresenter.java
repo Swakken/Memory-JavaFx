@@ -1,20 +1,22 @@
 package com.example.memory.view.startspel;
 
+import com.example.memory.base.BasePresenter;
+import com.example.memory.view.highscores.HighscoresView;
 import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import com.example.memory.view.spelscherm.SpelschermPresenter;
 import com.example.memory.view.spelscherm.SpelschermView;
 import javafx.event.ActionEvent;
 
-public class StartSpelPresenter {
+public class StartSpelPresenter extends BasePresenter<StartSpelView> {
 
     private StartSpelView view;
 
     public StartSpelPresenter(StartSpelView view) {
+        super(view);
         this.view = view;
         this.addEventListnersHome();
         this.addEventListnersSpelScherm();
-        this.addEventListnersAfsluiten();
         this.enableStartButtonBasedOnNameInput();
         view.getBtnStartSpel().setDisable(view.getTxtfldSpelerNaam().getText().trim().isEmpty());
     }
@@ -41,13 +43,6 @@ public class StartSpelPresenter {
             this.view.getScene().setRoot(mijnSpelschermView);
         });
     }
-    private void addEventListnersAfsluiten(){
-        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-            System.exit(0);
-
-        });
-    }
-
     private void enableStartButtonBasedOnNameInput() {
         view.getTxtfldSpelerNaam().textProperty().addListener((observable, oldValue, newValue) -> {
             view.getBtnStartSpel().setDisable(newValue.trim().isEmpty());

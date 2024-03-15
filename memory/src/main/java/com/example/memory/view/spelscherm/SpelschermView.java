@@ -1,5 +1,6 @@
 package com.example.memory.view.spelscherm;
 
+import com.example.memory.base.BaseView;
 import com.example.memory.model.Cel;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -16,15 +17,12 @@ import javafx.scene.text.Text;
 import java.util.*;
 
 
-public class SpelschermView extends BorderPane {
+public class SpelschermView extends BaseView {
 
     private Button btnMenu;
     private Text txtScore;
     private GridPane gpSpelBord;
 
-    private Menu menuHulp;
-    private MenuItem afsluiten;
-    private MenuItem instellingen;
     private Map<String, Image> afbeeldingenMap;
     private Image imgCardBackground;
 
@@ -41,6 +39,7 @@ public class SpelschermView extends BorderPane {
 
 
     public SpelschermView() {
+        super();
         initialseNodes();
         layoutNodes();
         initialiseerAfbeeldingen();
@@ -57,9 +56,6 @@ public class SpelschermView extends BorderPane {
 
         txtSpelerNaam = new Text("Speler: ");
 
-        menuHulp = new Menu("Hulp");
-        afsluiten = new MenuItem("Afsluiten");
-        instellingen = new MenuItem("Instellingen");
         imgCardBackground = new Image("defaultCardBackground.png");
     }
 
@@ -77,13 +73,8 @@ public class SpelschermView extends BorderPane {
         txtSpelerNaam.setStyle("-fx-font-weight: bold;");
         topHBox.getChildren().add(txtSpelerNaam);
 
-        // Aangemaakte MenuBar
-        MenuBar menuBar = new MenuBar();
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        menuBar.getMenus().add(menuHulp);
-
         // VBox voor de MenuBar en de spelerNaam
-        VBox topVBox = new VBox(menuBar, topHBox);
+        VBox topVBox = new VBox(topHBox);
         topVBox.setAlignment(Pos.TOP_CENTER);
         this.setTop(topVBox);
 
@@ -116,11 +107,6 @@ public class SpelschermView extends BorderPane {
     public Button getBtnMenu() {
         return btnMenu;
     }
-
-    public MenuItem getAfsluiten() {
-        return afsluiten;
-    }
-
 
     // Afbeeldingen van de dieren gelinkt aan de dierId's
     private void initialiseerAfbeeldingen() {
@@ -172,6 +158,53 @@ public class SpelschermView extends BorderPane {
     }
 
     // Functie wanneer de kaarten worden omgeraaid
+    public void draaiKaart(Button geselecteerdeKaartbutton) {
+        if (geselecteerdeKaarten.size() < 2) {
+            // Kaart wordt toegevoegd aan de lijst met geselecteerde kaarten
+            geselecteerdeKaarten.add(geselecteerdeKaartbutton);
+
+            int kaartId = (int) geselecteerdeKaartbutton.getUserData();
+            String afbeeldingsNaam = kaartId + ".png";
+            ImageView imgvwAfbeelding = new ImageView(new Image(afbeeldingsNaam));
+            imgvwAfbeelding.setFitWidth(100);
+            imgvwAfbeelding.setFitHeight(100);
+
+            geselecteerdeKaartbutton.setGraphic(imgvwAfbeelding);
+
+            // Kijk of 2 kaarten hetzelfde zijn, als ze zijn omgedraaid
+            if (geselecteerdeKaarten.size() == 2) {
+                Button eersteKaart = geselecteerdeKaarten.get(0);
+                Button tweedeKaart = geselecteerdeKaarten.get(1);
+
+                // De kaarten zijn hetzelfde, laat ze omgedraaid liggen
+                if (eersteKaart.getUserData().equals(tweedeKaart.getUserData())) {
+                    // Verhoog de score met 1
+                    score++;
+                    txtScore.setText("Score: " + score);
+                    // Wis de lijst met geselecteerde kaarten
+                    geselecteerdeKaarten.clear();
+                } else {
+                    // De kaarten zijn niet hetzelfde, draai ze na 1 seconde terug om
+                    Timer timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Platform.runLater(() -> {
+                                for (Button kaart : geselecteerdeKaarten) {
+                                    ImageView achtergrond = new ImageView(imgCardBackground);
+                                    achtergrond.setFitWidth(100);
+                                    achtergrond.setFitHeight(100);
+                                    kaart.setGraphic(achtergrond);
+                                }
+                                // Wis de lijst met geselecteerde kaarten
+                                geselecteerdeKaarten.clear();
+                            });
+                        }
+                    }, 1000); // 1000 milliseconds = 1 seconde
+                }
+            }
+        }
+    }
 //    public void draaiKaart(Button geselecteerdeKaartbutton) {
 //        if (geselecteerdeKaarten.size() < 2) {
 //            // Kaart wordt toegevoegd aan de lijst met geselecteerde kaarten
@@ -220,7 +253,6 @@ public class SpelschermView extends BorderPane {
 //            }
 //        }
 //    }
-
 
     // Check if spelerNaam is ingevuld
     public void setSpelerNaam(String naam) {

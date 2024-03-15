@@ -1,5 +1,6 @@
 package com.example.memory.view.highscores;
 
+import com.example.memory.base.BaseView;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
@@ -11,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 
-public class HighscoresView extends BorderPane {
+public class HighscoresView extends BaseView {
     private Text txtTitel;
     private Text score1;
     private Text score2;
@@ -20,11 +21,9 @@ public class HighscoresView extends BorderPane {
     private Text score5;
     private Button terugButton;
 
-    private Menu menuHulp;
-    private MenuItem afsluiten;
-    private MenuItem instellingen;
 
     public HighscoresView() {
+        super();
         initialiseNodes();
         layoutNodes();
         this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
@@ -38,19 +37,12 @@ public class HighscoresView extends BorderPane {
         score4 = new Text("1. Speler A - 70 punten");
         score5 = new Text("1. Speler A - 60 punten");
         terugButton = new Button("Terug naar Home");
-
-        menuHulp = new Menu("Hulp");
-        afsluiten = new MenuItem("Afsluiten");
-        instellingen = new MenuItem("Instellingen");
     }
 
     public Button getTerugButton() {
         return terugButton;
     }
 
-    public MenuItem getAfsluiten() {
-        return afsluiten;
-    }
 
     private void layoutNodes() {
         VBox buttonVBox = new VBox();
@@ -69,8 +61,5 @@ public class HighscoresView extends BorderPane {
         txtTitel.setId("txtTitel");
         setCenter(buttonVBox);
 
-
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        setTop(new MenuBar(menuHulp));
     }
 }

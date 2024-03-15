@@ -1,5 +1,6 @@
 package com.example.memory.view.startspel;
 
+import com.example.memory.base.BaseView;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -7,18 +8,15 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class StartSpelView extends BorderPane {
+public class StartSpelView extends BaseView {
     private Text txtStartSpel;
     private Label lblSpelerNaam;
     private Button btnAnnuleren;
     private Button btnStartSpel;
     private TextField txtfldSpelerNaam;
 
-    private Menu menuHulp;
-    private MenuItem afsluiten;
-    private MenuItem instellingen;
-
     public StartSpelView() {
+        super();
         initialiseNodes();
         layoutNodes();
         this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
@@ -31,17 +29,10 @@ public class StartSpelView extends BorderPane {
         btnStartSpel = new Button("Start Spel");
         txtfldSpelerNaam = new TextField();
 
-        menuHulp = new Menu("Hulp");
-        afsluiten = new MenuItem("Afsluiten");
-        instellingen = new MenuItem("Instellingen");
     }
 
     public Button getBtnAnnuleren() {
         return btnAnnuleren;
-    }
-
-    public MenuItem getAfsluiten() {
-        return afsluiten;
     }
 
     public TextField getTxtfldSpelerNaam() {
@@ -85,9 +76,6 @@ public class StartSpelView extends BorderPane {
 
         txtStartSpel.setId("txtTitel");
         setCenter(MainVBox);
-
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        setTop(new MenuBar(menuHulp));
 
     }
 

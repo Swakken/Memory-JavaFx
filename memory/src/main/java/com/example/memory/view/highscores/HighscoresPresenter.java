@@ -1,17 +1,18 @@
 package com.example.memory.view.highscores;
 
+import com.example.memory.base.BasePresenter;
 import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;
 
-public class HighscoresPresenter {
+public class HighscoresPresenter extends BasePresenter<HighscoresView> {
 
     private HighscoresView view;
 
     public HighscoresPresenter(HighscoresView view) {
+        super(view);
         this.view = view;
         this.addEventListnersHomePagina();
-        this.addEventListnersAfsluiten();
     }
 
     private void addEventListnersHomePagina() {
@@ -24,10 +25,5 @@ public class HighscoresPresenter {
         });
     }
 
-    private void addEventListnersAfsluiten(){
-        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-            System.exit(0);
 
-        });
-    }
 }

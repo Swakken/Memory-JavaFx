@@ -1,5 +1,6 @@
 package com.example.memory.view.handleiding;
 
+import com.example.memory.base.BaseView;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
@@ -11,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 
-public class HandleidingView extends BorderPane {
+public class HandleidingView extends BaseView {
     private Text txtTitel;
     private Button terugButton;
     private Text intro;
@@ -20,11 +21,9 @@ public class HandleidingView extends BorderPane {
     private Text bedieningTitel;
     private Text bediening;
 
-    private Menu menuHulp;
-    private MenuItem afsluiten;
-    private MenuItem instellingen;
 
     public HandleidingView() {
+        super();
         initialiseNodes();
         layoutNodes();
         this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
@@ -48,9 +47,6 @@ public class HandleidingView extends BorderPane {
                         "- ESC toets om het spel te pauzeren."
         );
 
-        menuHulp = new Menu("Hulp");
-        afsluiten = new MenuItem("Afsluiten");
-        instellingen = new MenuItem("Instellingen");
     }
 
     public Button getTerugButton() {
@@ -77,8 +73,6 @@ public class HandleidingView extends BorderPane {
         txtTitel.setId("txtTitel");
         setCenter(MainVBox);
 
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        setTop(new MenuBar(menuHulp));
 
     }
 }

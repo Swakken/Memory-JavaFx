@@ -1,5 +1,6 @@
 package com.example.memory.view.home;
 
+import com.example.memory.base.BasePresenter;
 import com.example.memory.view.handleiding.HandleidingPresenter;
 import com.example.memory.view.handleiding.HandleidingView;
 import com.example.memory.view.highscores.HighscoresPresenter;
@@ -10,17 +11,21 @@ import com.example.memory.view.startspel.StartSpelPresenter;
 import com.example.memory.view.startspel.StartSpelView;
 import javafx.event.ActionEvent;
 
-public class HomePresenter {
+public class HomePresenter extends BasePresenter<HomeView> {
 
     private HomeView view;
 
     public HomePresenter(HomeView view) {
+        super(view);
         this.view = view;
         this.addEventListnersStartSpel();
         this.addEventListnersHighscores();
         this.addEventListnersHandleiding();
-        this.addEventListnersAfsluiten();
-        this.addEventListenersInstellingen();
+    }
+
+    @Override
+    protected void addEventListeners() {
+        super.addEventListeners();
     }
 
     private void addEventListnersStartSpel() {
@@ -53,23 +58,9 @@ public class HomePresenter {
         });
     }
 
-    private void addEventListnersAfsluiten() {
-        this.view.getAfsluiten().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-            System.exit(0);
-        });
-    }
 
-    private void addEventListenersInstellingen() {
-        this.view.getInstellingen().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-            InstellingenView mijnInstellingenView = new InstellingenView();
-            InstellingenPresenter mijnInstellingenPresenter = new InstellingenPresenter(mijnInstellingenView);
-
-//             Fout met verwijzing naar InstellingenView
-//            this.view.getScene().setRoot(mijnInstellingenView);
-        });
     }
 
 
 
 
-}

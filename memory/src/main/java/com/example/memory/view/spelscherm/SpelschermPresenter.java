@@ -1,5 +1,6 @@
 package com.example.memory.view.spelscherm;
 
+import com.example.memory.base.BasePresenter;
 import com.example.memory.model.Cel;
 import com.example.memory.model.Spel;
 import com.example.memory.view.home.HomePresenter;
@@ -11,7 +12,7 @@ import javafx.scene.control.Button;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpelschermPresenter {
+public class SpelschermPresenter extends BasePresenter<SpelschermView> {
 
     private Spel spel;
     private SpelschermView view;
@@ -19,10 +20,10 @@ public class SpelschermPresenter {
 
 
     public SpelschermPresenter(SpelschermView view, String spelerNaam) {
+        super(view);
         this.spel = new Spel();
         this.view = view;
         this.addEventListenerMenu();
-        this.addEventListnersAfsluiten();
         this.view.setSpelerNaam(spelerNaam);
         this.initialiseerView();
         this.addEventHandlersKaartButton();

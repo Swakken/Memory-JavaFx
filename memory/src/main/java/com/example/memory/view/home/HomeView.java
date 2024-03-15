@@ -1,5 +1,6 @@
 package com.example.memory.view.home;
 
+import com.example.memory.base.BaseView;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
@@ -11,18 +12,17 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class HomeView extends BorderPane {
+public class HomeView extends BaseView {
 
     private Text txtTitel;
     private Button btnStartSpel;
     private Button btnHighscores;
     private Button btnHandleiding;
 
-    private Menu menuHulp;
-    private MenuItem afsluiten;
-    private MenuItem instellingen;
+
 
     public HomeView() {
+        super();
         initialiseNodes();
         layoutNodes();
         this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
@@ -39,9 +39,7 @@ public class HomeView extends BorderPane {
         btnHighscores = new Button("Highscores", new ImageView(highscores));
         btnHandleiding = new Button("Handleiding", new ImageView(help));
 
-        menuHulp = new Menu("Hulp");
-        afsluiten = new MenuItem("Afsluiten");
-        instellingen = new MenuItem("Instellingen");
+
 
     }
 
@@ -68,8 +66,6 @@ public class HomeView extends BorderPane {
 
         setCenter(buttonVBox);
 
-        menuHulp.getItems().addAll(afsluiten, instellingen);
-        setTop(new MenuBar(menuHulp));
 
     }
 
@@ -87,11 +83,5 @@ public class HomeView extends BorderPane {
         return btnHandleiding;
     }
 
-    public MenuItem getAfsluiten() {
-        return afsluiten;
-    }
 
-    public MenuItem getInstellingen() {
-        return instellingen;
-    }
 }
