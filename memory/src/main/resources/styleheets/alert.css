@@ -1,0 +1,15 @@
+* {
+    -fx-background-color: #f39c12;
+    -fx-font-size: 14px;
+}
+
+.alert .button {
+    -fx-background-color: #db6134;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 100px;
+}
+
+.alert .button:hover {
+    -fx-background-color: #e74c3c;
+}
