@@ -72,6 +72,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                 // Geselecteerde knop
                 Button button = (Button) event.getSource();
                 int id = (int) button.getUserData();
+                button.setDisable(true);
 
                 // Geselecteerde knop draaien
                 view.draaiKaart(button);

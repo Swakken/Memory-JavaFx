@@ -190,6 +190,7 @@ public class SpelschermView extends BaseView {
                     imgvwAchtergrond.setFitWidth(100);
                     imgvwAchtergrond.setFitHeight(100);
                     button.setGraphic(imgvwAchtergrond);
+                    button.setDisable(false);
                 }
             }
             if (eersteId != tweedeId) {
