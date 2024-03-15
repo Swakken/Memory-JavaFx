@@ -2,6 +2,8 @@ package com.example.memory.view.spelscherm;
 
 import com.example.memory.base.BaseView;
 import com.example.memory.model.Cel;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -14,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.util.*;
 
@@ -178,16 +181,19 @@ public class SpelschermView extends BaseView {
     }
 
     public void draaiTerugOm(int eersteId, int tweedeId) {
-        for (Node node : gpSpelBord.getChildren()) {
-            Button button = (Button) node;
-            int buttonId = (int) button.getUserData();
-            if (buttonId == eersteId || buttonId == tweedeId) {
-                ImageView imgvwAchtergrond = new ImageView(imgCardBackground);
-                imgvwAchtergrond.setFitWidth(100);
-                imgvwAchtergrond.setFitHeight(100);
-                button.setGraphic(imgvwAchtergrond);
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> {
+            for (Node node : gpSpelBord.getChildren()) {
+                Button button = (Button) node;
+                int buttonId = (int) button.getUserData();
+                if (buttonId == eersteId || buttonId == tweedeId) {
+                    ImageView imgvwAchtergrond = new ImageView(imgCardBackground);
+                    imgvwAchtergrond.setFitWidth(100);
+                    imgvwAchtergrond.setFitHeight(100);
+                    button.setGraphic(imgvwAchtergrond);
+                }
             }
-        }
+        }));
+        timeline.play();
     }
 
 

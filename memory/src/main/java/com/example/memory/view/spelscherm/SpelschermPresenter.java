@@ -5,21 +5,16 @@ import com.example.memory.model.Cel;
 import com.example.memory.model.Spel;
 import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.util.Duration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SpelschermPresenter extends BasePresenter<SpelschermView> {
 
     private Spel spel;
     private SpelschermView view;
-
 
 
     public SpelschermPresenter(SpelschermView view, String spelerNaam) {
@@ -32,7 +27,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
         this.addEventHandlersKaartButton();
     }
 
-    private void initialiseerView(){
+    private void initialiseerView() {
         Cel[] cellenArray = spel.getCellenArray();
         view.vulGridPane(cellenArray);
     }
@@ -51,7 +46,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
         });
     }
 
-    private void addEventHandlersKaartButton(){
+    private void addEventHandlersKaartButton() {
 
         // Alle kaart knoppen opvragen
         List<Button> kaartKnoppen = view.getKaartKnoppen();
@@ -63,7 +58,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
 
                 // Geselecteerde knop
                 Button button = (Button) event.getSource();
-                int id = (int)button.getUserData();
+                int id = (int) button.getUserData();
 
                 // Geselecteerde knop draaien
                 view.draaiKaart(button);
@@ -72,30 +67,21 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
 
                 if (!spel.vergelijkKaarten(id)) {
                     // Niet-matchende kaarten terug omdraaien
-                    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> {
-                        view.draaiTerugOm(spel.getEersteId(), spel.getTweedeId());
-                    }));
-                    timeline.play();
+                    view.draaiTerugOm(spel.getEersteId(), spel.getTweedeId());
                 } else {
                     // Matchende kaarten van het bord halen
                     view.verwijderMatch(id);
                 }
 
 
-
             }
         };
 
         // Loopen door lijst
-        for(Button button : kaartKnoppen)
+        for (Button button : kaartKnoppen)
             button.setOnAction(kaartKnopEvent);
 
     }
-
-
-
-
-
 
 
 //    private void addEventListenersButtons(){
@@ -130,6 +116,6 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
 //            b.addEventHandler(ActionEvent.ACTION, handler);
 //        }
 
-    }
+}
 
 
