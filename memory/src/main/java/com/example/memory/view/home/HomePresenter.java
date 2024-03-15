@@ -1,6 +1,8 @@
 package com.example.memory.view.home;
 
 import com.example.memory.base.BasePresenter;
+import com.example.memory.view.MenuBuilder;
+import com.example.memory.view.MenuFactory;
 import com.example.memory.view.handleiding.HandleidingPresenter;
 import com.example.memory.view.handleiding.HandleidingView;
 import com.example.memory.view.highscores.HighscoresPresenter;
@@ -10,8 +12,9 @@ import com.example.memory.view.instellingen.InstellingenView;
 import com.example.memory.view.startspel.StartSpelPresenter;
 import com.example.memory.view.startspel.StartSpelView;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.BorderPane;
 
-public class HomePresenter extends BasePresenter<HomeView> {
+public class HomePresenter extends BorderPane {
 
     private HomeView view;
 
@@ -21,12 +24,12 @@ public class HomePresenter extends BasePresenter<HomeView> {
         this.addEventListnersStartSpel();
         this.addEventListnersHighscores();
         this.addEventListnersHandleiding();
+
+        MenuFactory factory = new MenuFactory();
+        MenuBuilder builder = factory.createDefaultBuilder(this);
+        builder.build();
     }
 
-    @Override
-    protected void addEventListeners() {
-        super.addEventListeners();
-    }
 
     private void addEventListnersStartSpel() {
         this.view.getBtnStartSpel().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
