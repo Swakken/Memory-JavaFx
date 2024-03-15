@@ -192,8 +192,17 @@ public class SpelschermView extends BaseView {
                     button.setGraphic(imgvwAchtergrond);
                 }
             }
+            if (eersteId != tweedeId) {
+                score--;
+                updateScore(score);
+            }
         }));
         timeline.play();
+    }
+
+    public void updateScore(int newScore) {
+        score = newScore;
+        txtScore.setText("Score: " + score);
     }
 
 

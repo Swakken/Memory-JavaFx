@@ -40,7 +40,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
         this.view.getBtnMenu().addEventHandler(ActionEvent.ACTION, actionEvent -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Spel Afsluiten");
-            alert.setHeaderText("Weet je zeker dat je het spel wilt afsluiten?");
+            alert.setHeaderText("Weet je zeker dat je het spel wilt beëindigen?");
             alert.setContentText("Je vooruitgang zal verloren gaan!");
 
             ButtonType jaButton = new ButtonType("Ja", ButtonBar.ButtonData.OK_DONE);
@@ -77,7 +77,6 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                 view.draaiKaart(button);
 
                 // Communiceren met model
-
                 if (!spel.vergelijkKaarten(id)) {
                     // Niet-matchende kaarten terug omdraaien
                     view.draaiTerugOm(spel.getEersteId(), spel.getTweedeId());
@@ -85,8 +84,6 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                     // Matchende kaarten van het bord halen
                     view.verwijderMatch(id);
                 }
-
-
             }
         };
 
