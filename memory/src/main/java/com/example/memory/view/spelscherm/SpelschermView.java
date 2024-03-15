@@ -3,6 +3,7 @@ package com.example.memory.view.spelscherm;
 import com.example.memory.model.Cel;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -169,7 +170,38 @@ public class SpelschermView extends BorderPane {
         ImageView imgvwAfbeelding = new ImageView(new Image(afbeeldingsNaam));
         imgvwAfbeelding.setFitWidth(100);
         imgvwAfbeelding.setFitHeight(100);
+        button.setGraphic(imgvwAfbeelding);
     }
+
+    public void verwijderMatch(int id) {
+        Iterator<Button> iterator = alleKaartKnoppen.iterator();
+        while (iterator.hasNext()) {
+            Button button = iterator.next();
+            int buttonId = (int) button.getUserData();
+            if (buttonId == id) {
+                // Verwijder de knop uit de gridPane
+                gpSpelBord.getChildren().remove(button);
+                // Verwijder de knop van de knoppenLijst
+                iterator.remove();
+            }
+        }
+    }
+
+    public void draaiTerugOm(int eersteId, int tweedeId) {
+        for (Node node : gpSpelBord.getChildren()) {
+            Button button = (Button) node;
+            int buttonId = (int) button.getUserData();
+            if (buttonId == eersteId || buttonId == tweedeId) {
+                ImageView imgvwAchtergrond = new ImageView(imgCardBackground);
+                imgvwAchtergrond.setFitWidth(100);
+                imgvwAchtergrond.setFitHeight(100);
+                button.setGraphic(imgvwAchtergrond);
+            }
+        }
+    }
+
+
+
 
     // Functie wanneer de kaarten worden omgeraaid
 //    public void draaiKaart(Button geselecteerdeKaartbutton) {

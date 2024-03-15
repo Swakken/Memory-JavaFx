@@ -4,9 +4,12 @@ import com.example.memory.model.Cel;
 import com.example.memory.model.Spel;
 import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,12 +68,16 @@ public class SpelschermPresenter {
                 view.draaiKaart(button);
 
                 // Communiceren met model
-                spel.vergelijkKaarten(id);
 
-                if (spel.vergelijkKaarten(id)){
-                    // Updaten view
-
-
+                if (!spel.vergelijkKaarten(id)) {
+                    // Niet-matchende kaarten terug omdraaien
+                    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> {
+                        view.draaiTerugOm(spel.getEersteId(), spel.getTweedeId());
+                    }));
+                    timeline.play();
+                } else {
+                    // Matchende kaarten van het bord halen
+                    view.verwijderMatch(id);
                 }
 
 
@@ -84,12 +91,6 @@ public class SpelschermPresenter {
 
     }
 
-    public void handleKaartClick(Button button){
-        view.draaiKaart(button);
-
-
-
-    };
 
 
 
