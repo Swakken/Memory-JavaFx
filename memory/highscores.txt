@@ -1,0 +1,4 @@
+Spelernaam: Test
+score: 0
+Spelernaam: Simon
+score: 0

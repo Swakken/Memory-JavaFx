@@ -104,6 +104,14 @@ public class SpelschermView extends BaseView {
         return btnMenu;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public Text getTxtSpelerNaam() {
+        return txtSpelerNaam;
+    }
+
     // Afbeeldingen van de dieren gelinkt aan de dierId's
     private void initialiseerAfbeeldingen() {
         afbeeldingenMap = new HashMap<>();

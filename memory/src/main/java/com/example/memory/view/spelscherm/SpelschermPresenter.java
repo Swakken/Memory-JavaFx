@@ -12,6 +12,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +32,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
         this.view.setSpelerNaam(spelerNaam);
         this.initialiseerView();
         this.addEventHandlersKaartButton();
+        endGame();
     }
 
     private void initialiseerView() {
@@ -73,10 +77,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                 Button button = (Button) event.getSource();
                 int id = (int) button.getUserData();
                 button.setDisable(true);
-
-                // Geselecteerde knop draaien
                 view.draaiKaart(button);
-
                 // Communiceren met model
                 if (!spel.vergelijkKaarten(id)) {
                     // Niet-matchende kaarten terug omdraaien
@@ -87,10 +88,27 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                 }
             }
         };
-
         // Loopen door lijst
         for (Button button : kaartKnoppen)
             button.setOnAction(kaartKnopEvent);
+    }
 
+
+    // Methode om het spel te beëindigen en scores op te slaan
+    public void endGame() {
+        int score = view.getScore(); // Je haalt de score op uit de view
+        String playerName = view.getTxtSpelerNaam().getText(); // Je haalt de speler naam op uit de view
+        saveScore(playerName, score); // Sla de score op
+    }
+
+
+
+    // Methode om de score op te slaan in een tekstbestand
+    private void saveScore(String playerName, int score) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("highscores.txt", true))) {
+            writer.println(playerName + "\nscore: " + score);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
