@@ -180,10 +180,6 @@ public class SpelschermView extends BaseView {
                 gpSpelBord.getChildren().remove(knop);
                 alleKaartKnoppen.remove(knop);
             }
-            // Punt geven voor de match
-            score++;
-            // Weergave van de score updaten
-            txtScore.setText("Score: " + score);
         }));
         timeline.play();
     }
@@ -201,10 +197,6 @@ public class SpelschermView extends BaseView {
                     button.setDisable(false);
                 }
             }
-            if (eersteId != tweedeId) {
-                score--;
-                updateScore(score);
-            }
         }));
         timeline.play();
     }
@@ -212,6 +204,16 @@ public class SpelschermView extends BaseView {
     public void updateScore(int newScore) {
         score = newScore;
         txtScore.setText("Score: " + score);
+    }
+
+    public void verminderScore(int score){
+        score--;
+        updateScore(score);
+    }
+
+    public void vermeerderScore(int score){
+        score+=10;
+        updateScore(score);
     }
 
 

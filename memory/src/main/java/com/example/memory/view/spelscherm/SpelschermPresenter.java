@@ -7,6 +7,7 @@ import com.example.memory.view.home.HomePresenter;
 import com.example.memory.view.home.HomeView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -82,9 +83,13 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                 if (!spel.vergelijkKaarten(id)) {
                     // Niet-matchende kaarten terug omdraaien
                     view.draaiTerugOm(spel.getEersteId(), spel.getTweedeId());
+                    int score = view.getScore();
+                    view.verminderScore(score);
                 } else {
                     // Matchende kaarten van het bord halen
                     view.verwijderMatch(id);
+                    int score = view.getScore();
+                    view.vermeerderScore(score);
                 }
             }
         };

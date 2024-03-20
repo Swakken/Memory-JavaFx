@@ -49,35 +49,4 @@ public class Spel {
     public int getTweedeId() {
         return tweedeId;
     }
-
-    ;
-
-
-//    public int[] getBoardIds(){
-//
-//    }
-
-
-//
-//    public kanCellenVergelijken(){
-//
-//    }
-//
-//    public boolean vergelijkCellen(){
-//        return board.cellsMatch();
-//    }
-//
-//    public turnCellMatching(int id){
-//        //board.turnMatchingCells(x, y);
-//    }
-//
-//    public int[] getBoardIds(){
-//
-//    }
-//
-
-//    public boolean[] getBoardTurned(){
-//
-//    }
-
 }

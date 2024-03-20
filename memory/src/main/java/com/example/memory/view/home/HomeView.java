@@ -36,8 +36,6 @@ public class HomeView extends BaseView {
         btnHighscores = new Button("Highscores", new ImageView(highscores));
         btnHandleiding = new Button("Handleiding", new ImageView(help));
 
-
-
     }
 
     private void layoutNodes() {

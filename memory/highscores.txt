@@ -1,4 +1,7 @@
-Spelernaam: Test
+
+Spelernaam: f
 score: 0
-Spelernaam: Simon
+Spelernaam: f
+score: 0
+Spelernaam: f
 score: 0
