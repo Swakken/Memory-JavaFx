@@ -46,7 +46,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Spel Afsluiten");
             alert.setHeaderText("Weet je zeker dat je het spel wilt beëindigen?");
-            alert.setContentText("Je vooruitgang zal verloren gaan!");
+            alert.setContentText("Als het spel nog niet voltooid is zal je vooruitgang verloren gaan!");
 
             ButtonType jaButton = new ButtonType("Ja", ButtonBar.ButtonData.OK_DONE);
             ButtonType cancelButton = new ButtonType("Annuleren", ButtonBar.ButtonData.CANCEL_CLOSE);
