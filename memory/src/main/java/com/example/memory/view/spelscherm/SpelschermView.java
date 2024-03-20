@@ -6,6 +6,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -174,8 +175,8 @@ public class SpelschermView extends BaseView {
             }
         }
 
-        // Wacht 0.5 seconden voordat de kaarten worden verwijderd
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), event -> {
+        // Wacht 0.3 seconden voordat de kaarten worden verwijderd
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(300), event -> {
             for (Button knop : teVerwijderenKnoppen) {
                 gpSpelBord.getChildren().remove(knop);
                 alleKaartKnoppen.remove(knop);
@@ -183,15 +184,6 @@ public class SpelschermView extends BaseView {
         }));
 
         timeline.play();
-    }
-
-    public boolean checkGridPane(){
-            for (Node node : gpSpelBord.getChildren()) {
-                if (node.isVisible()) {
-                    return false;
-                }
-            }
-            return true;
     }
 
     public void draaiTerugOm(int eersteId, int tweedeId) {

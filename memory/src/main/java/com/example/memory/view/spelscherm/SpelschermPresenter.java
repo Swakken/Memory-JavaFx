@@ -65,7 +65,6 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
 
 
     private void addEventHandlersKaartButton() {
-
         // Alle kaart knoppen opvragen
         List<Button> kaartKnoppen = view.getKaartKnoppen();
 
@@ -91,16 +90,46 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                     int score = view.getScore();
                     view.vermeerderScore(score);
 
+                    // Controleer of het spel voltooid is NA de match
+                    if (isSpelVoltooid()) {
+                        toonSpelVoltooidBericht();
+                    }
+
                     String playerName = view.getTxtSpelerNaam().getText();
                     saveScore(playerName, score);
-
                 }
             }
         };
+
         // Loopen door lijst
         for (Button button : kaartKnoppen)
             button.setOnAction(kaartKnopEvent);
     }
+
+
+
+    private boolean isSpelVoltooid() {
+        // Voorbeeld van een simpele controle (moet aangepast worden aan je logica)
+        return view.getKaartKnoppen().stream().allMatch(Node::isDisabled);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // score opslaan;
 
 
     // Methode om het spel te beëindigen en scores op te slaan
@@ -125,4 +154,15 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
             e.printStackTrace();
         }
     }
+
+    private void toonSpelVoltooidBericht() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Spel Voltooid");
+        alert.setHeaderText(null);
+        alert.setContentText("Goed gedaan! Je hebt het spel voltooid, bekijk je score op het scorebord");
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/styleheets/alert.css").toExternalForm());
+
+        alert.showAndWait();
+    }
+
 }
