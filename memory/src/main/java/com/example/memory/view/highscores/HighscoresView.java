@@ -7,31 +7,29 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class HighscoresView extends BaseView {
     private Text txtTitel;
-    private Text score1;
-    private Text score2;
-    private Text score3;
-    private Text score4;
-    private Text score5;
+    private Text[] scores;
     private Button terugButton;
-
 
     public HighscoresView() {
         super();
         initialiseNodes();
         layoutNodes();
         this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
+        loadScores(); // Load scores when the view is created
     }
 
     private void initialiseNodes() {
         txtTitel = new Text("Highscores");
-        score1 = new Text("1. Speler A - 100 punten");
-        score2 = new Text("1. Speler A - 90 punten");
-        score3 = new Text("1. Speler A - 80 punten");
-        score4 = new Text("1. Speler A - 70 punten");
-        score5 = new Text("1. Speler A - 60 punten");
+        scores = new Text[5]; // Array to hold scores
+        for (int i = 0; i < scores.length; i++) {
+            scores[i] = new Text();
+        }
         terugButton = new Button("Terug naar Home");
     }
 
@@ -39,10 +37,13 @@ public class HighscoresView extends BaseView {
         return terugButton;
     }
 
-
     private void layoutNodes() {
         VBox buttonVBox = new VBox();
-        buttonVBox.getChildren().addAll(txtTitel, score1, score2, score3, score4, score5, terugButton);
+        buttonVBox.getChildren().addAll(txtTitel);
+        for (Text score : scores) {
+            buttonVBox.getChildren().add(score);
+        }
+        buttonVBox.getChildren().addAll(terugButton);
         buttonVBox.setAlignment(Pos.CENTER);
         buttonVBox.setSpacing(12);
 
@@ -56,6 +57,19 @@ public class HighscoresView extends BaseView {
 
         txtTitel.setId("txtTitel");
         setCenter(buttonVBox);
+    }
 
+    // Method to load scores from highscores.txt file
+    private void loadScores() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("highscores.txt"))) {
+            String line;
+            int i = 0;
+            while ((line = reader.readLine()) != null && i < scores.length) {
+                scores[i].setText(line); // Set score text
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

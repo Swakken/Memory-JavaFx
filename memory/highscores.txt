@@ -1,17 +1,1 @@
-
-Spelernaam: a: -3
-Spelernaam: a: -10
-Spelernaam: a: -9
-Spelernaam: a: -4
-Spelernaam: a: -5
-Spelernaam: a: 4
-Spelernaam: a: 13
-Spelernaam: a: 22
-Spelernaam: q: -7
-Spelernaam: q: 0
-Spelernaam: q: 9
-Spelernaam: q: 16
-Spelernaam: q: 21
-Spelernaam: q: 26
-Spelernaam: q: 35
-Spelernaam: q: 44
+Spelernaam: DJ_penguin: 5000

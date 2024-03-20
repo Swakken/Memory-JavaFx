@@ -93,10 +93,10 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                     // Controleer of het spel voltooid is NA de match
                     if (isSpelVoltooid()) {
                         toonSpelVoltooidBericht();
+                        endGame();
                     }
 
                     String playerName = view.getTxtSpelerNaam().getText();
-                    saveScore(playerName, score);
                 }
             }
         };
@@ -107,42 +107,18 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
     }
 
 
-
     private boolean isSpelVoltooid() {
-        // Voorbeeld van een simpele controle (moet aangepast worden aan je logica)
         return view.getKaartKnoppen().stream().allMatch(Node::isDisabled);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // score opslaan;
-
 
     // Methode om het spel te beëindigen en scores op te slaan
     public void endGame() {
         // De score ophalen
         int score = view.getScore();
-        String playerName = view.getTxtSpelerNaam().getText();
 
-        if (score > 0 && !playerName.isEmpty()) {
-            // Score opslaan aan het einde van het spel
+        if (score > 1) {
+            String playerName = view.getTxtSpelerNaam().getText();
             saveScore(playerName, score);
-        } else {
-            System.out.println("Ongeldige score of speler naam.");
         }
     }
 
