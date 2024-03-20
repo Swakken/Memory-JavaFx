@@ -17,7 +17,6 @@ public abstract class BasePresenter<ViewType extends BaseView> {
 
     protected void addEventListeners() {
         addEventListenersAfsluiten();
-//        addEventListenersInstellingen();
     }
 
     private void addEventListenersAfsluiten() {
@@ -40,13 +39,4 @@ public abstract class BasePresenter<ViewType extends BaseView> {
         });
     }
 
-
-//    private void addEventListenersInstellingen() {
-//        this.view.getInstellingen().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
-//            InstellingenView mijnInstellingenView = new InstellingenView();
-//            InstellingenPresenter mijnInstellingenPresenter = new InstellingenPresenter(mijnInstellingenView);
-//
-////             Fout met verwijzing naar InstellingenView
-////            this.view.getScene().setRoot(mijnInstellingenView);
-//        });
 }

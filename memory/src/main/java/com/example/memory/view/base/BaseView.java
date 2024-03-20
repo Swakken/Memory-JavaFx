@@ -7,14 +7,13 @@ import javafx.scene.layout.BorderPane;
 
 public class BaseView extends BorderPane {
     private Menu menuHulp;
-    private MenuItem afsluiten, instellingen;
+    private MenuItem afsluiten;
 
     public BaseView() {
         menuHulp = new Menu("Hulp");
         afsluiten = new MenuItem("Afsluiten");
-        instellingen = new MenuItem("Instellingen");
 
-        menuHulp.getItems().addAll(afsluiten, instellingen);
+        menuHulp.getItems().addAll(afsluiten);
         MenuBar menuBar = new MenuBar(menuHulp);
         this.setTop(menuBar);
 
@@ -27,10 +26,6 @@ public class BaseView extends BorderPane {
 
     public MenuItem getAfsluiten() {
         return afsluiten;
-    }
-
-    public MenuItem getInstellingen() {
-        return instellingen;
     }
 
 }

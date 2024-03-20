@@ -5,3 +5,12 @@ Spelernaam: f
 score: 0
 Spelernaam: f
 score: 0
+Spelernaam: Test
+score: 0
+Spelernaam: a
+score: 0
+Spelernaam: Gert: -7
+Spelernaam: Gert: 0
+Spelernaam: a: -9
+Spelernaam: oom: -5
+Spelernaam: oom: -1
