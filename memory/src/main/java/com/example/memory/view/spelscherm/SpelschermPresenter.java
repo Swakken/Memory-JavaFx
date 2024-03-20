@@ -138,7 +138,19 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
         alert.setContentText("Goed gedaan! Je hebt het spel voltooid, bekijk je score op het scorebord");
         alert.getDialogPane().getStylesheets().add(getClass().getResource("/styleheets/alert.css").toExternalForm());
 
-        alert.showAndWait();
+        ButtonType homeButton = new ButtonType("Naar Home");
+        alert.getButtonTypes().addAll(homeButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == homeButton) {
+                // Navigeren naar de homepagina
+                HomeView homeView = new HomeView();
+                HomePresenter homePresenter = new HomePresenter(homeView);
+                view.getScene().setRoot(homeView);
+            }
+        }
     }
+
 
 }

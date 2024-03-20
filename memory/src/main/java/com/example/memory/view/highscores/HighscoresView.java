@@ -21,12 +21,12 @@ public class HighscoresView extends BaseView {
         initialiseNodes();
         layoutNodes();
         this.getStylesheets().add(getClass().getResource("/styleheets/home.css").toExternalForm());
-        loadScores(); // Load scores when the view is created
+        loadScores();
     }
 
     private void initialiseNodes() {
         txtTitel = new Text("Highscores");
-        scores = new Text[5]; // Array to hold scores
+        scores = new Text[5];
         for (int i = 0; i < scores.length; i++) {
             scores[i] = new Text();
         }
@@ -59,13 +59,12 @@ public class HighscoresView extends BaseView {
         setCenter(buttonVBox);
     }
 
-    // Method to load scores from highscores.txt file
     private void loadScores() {
         try (BufferedReader reader = new BufferedReader(new FileReader("highscores.txt"))) {
             String line;
             int i = 0;
             while ((line = reader.readLine()) != null && i < scores.length) {
-                scores[i].setText(line); // Set score text
+                scores[i].setText(line);
                 i++;
             }
         } catch (IOException e) {
