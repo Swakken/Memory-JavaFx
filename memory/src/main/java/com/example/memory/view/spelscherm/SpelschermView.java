@@ -181,7 +181,17 @@ public class SpelschermView extends BaseView {
                 alleKaartKnoppen.remove(knop);
             }
         }));
+
         timeline.play();
+    }
+
+    public boolean checkGridPane(){
+            for (Node node : gpSpelBord.getChildren()) {
+                if (node.isVisible()) {
+                    return false;
+                }
+            }
+            return true;
     }
 
     public void draaiTerugOm(int eersteId, int tweedeId) {
