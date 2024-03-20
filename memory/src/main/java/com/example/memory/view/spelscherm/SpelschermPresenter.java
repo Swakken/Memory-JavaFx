@@ -33,6 +33,7 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
         this.view.setSpelerNaam(spelerNaam);
         this.initialiseerView();
         this.addEventHandlersKaartButton();
+        this.endGame();
     }
 
     private void initialiseerView() {
@@ -87,13 +88,13 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
                 } else {
                     // Matchende kaarten van het bord halen
                     view.verwijderMatch(id);
-                    int score = view.getScore(); // Hier wordt de score rechtstreeks vanuit de Spel-instantie verkregen
+                    int score = view.getScore();
                     view.vermeerderScore(score);
 
                     String playerName = view.getTxtSpelerNaam().getText();
                     saveScore(playerName, score);
-                }
 
+                }
             }
         };
         // Loopen door lijst
@@ -102,7 +103,19 @@ public class SpelschermPresenter extends BasePresenter<SpelschermView> {
     }
 
 
+    // Methode om het spel te beëindigen en scores op te slaan
+    public void endGame() {
+        // De score ophalen
+        int score = view.getScore();
+        String playerName = view.getTxtSpelerNaam().getText();
 
+        if (score > 0 && !playerName.isEmpty()) {
+            // Score opslaan aan het einde van het spel
+            saveScore(playerName, score);
+        } else {
+            System.out.println("Ongeldige score of speler naam.");
+        }
+    }
 
     private void saveScore(String playerName, int score) {
         try (PrintWriter writer = new PrintWriter(new FileWriter("highscores.txt", true))) {
