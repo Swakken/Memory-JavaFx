@@ -14,3 +14,6 @@ Spelernaam: Gert: 0
 Spelernaam: a: -9
 Spelernaam: oom: -5
 Spelernaam: oom: -1
+Spelernaam: oom: 6
+Spelernaam: patje: -5
+Spelernaam: a: -3
