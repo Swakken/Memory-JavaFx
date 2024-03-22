@@ -24,19 +24,19 @@ public class Bord {
     private void bordOpvullen() {
         List<Integer> uniekeIDs = new ArrayList<>();
 
-        // Vul de lijst met unieke IDs
+
         for (int i = 1; i <= lengte / 2; i++) {
             uniekeIDs.add(i);
             uniekeIDs.add(i);
         }
 
-        List<Integer> uniekeIDsCopy = new ArrayList<>(uniekeIDs); // Create a copy
+        List<Integer> uniekeIDsCopy = new ArrayList<>(uniekeIDs);
 
-        // Kopieer de unieke IDs naar de cellenArray
+
         for (int i = 0; i < lengte; i++) {
             int randomIndex = (int) (Math.random() * uniekeIDsCopy.size());
-            cellenArray[i] = new Cel(uniekeIDsCopy.get(randomIndex)); // Use the copy
-            uniekeIDsCopy.remove(randomIndex); // Remove from the copy
+            cellenArray[i] = new Cel(uniekeIDsCopy.get(randomIndex));
+            uniekeIDsCopy.remove(randomIndex);
         }
         shuffleBord();
     }

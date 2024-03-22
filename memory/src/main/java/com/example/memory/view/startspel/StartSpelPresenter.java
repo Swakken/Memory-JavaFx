@@ -33,7 +33,7 @@ public class StartSpelPresenter extends BasePresenter<StartSpelView> {
     private void addEventListnersSpelScherm() {
         this.view.getBtnStartSpel().addEventHandler(ActionEvent.ACTION, (actionEvent) -> {
 
-            // De ingevulde spelernaam ophalen
+
             String spelerNaam = view.getTxtfldSpelerNaam().getText().trim();
 
             SpelschermView mijnSpelschermView = new SpelschermView();

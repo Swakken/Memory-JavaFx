@@ -21,7 +21,6 @@ public class BaseView extends BorderPane {
     }
 
     private void addEventListeners() {
-
     }
 
     public MenuItem getAfsluiten() {

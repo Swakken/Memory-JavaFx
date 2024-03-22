@@ -16,8 +16,6 @@ public class HomeView extends BaseView {
     private Button btnHighscores;
     private Button btnHandleiding;
 
-
-
     public HomeView() {
         super();
         initialiseNodes();
@@ -60,8 +58,6 @@ public class HomeView extends BaseView {
         )));
 
         setCenter(buttonVBox);
-
-
     }
 
 

@@ -9,6 +9,7 @@ public class Spel {
     private ArrayList<Integer> omgedraaideKaarten;
     private int eersteId;
     private int tweedeId;
+    private Bord bord;
 
     // Constructor
     public Spel() {
@@ -16,18 +17,12 @@ public class Spel {
         omgedraaideKaarten = new ArrayList<>();
     }
 
-    private Bord bord;
-
-
-
 
     private void maakSpel() {
         bord = new Bord(16);
     }
 
-    public Cel[] getCellenArray() {
-        return bord.getCellenArray();
-    }
+
 
     public boolean vergelijkKaarten(int id) {
         omgedraaideKaarten.add(id);
@@ -42,6 +37,9 @@ public class Spel {
         return match;
     }
 
+    public Cel[] getCellenArray() {
+        return bord.getCellenArray();
+    }
     public int getEersteId() {
         return eersteId;
     }

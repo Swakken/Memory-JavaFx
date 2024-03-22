@@ -31,18 +31,6 @@ public class StartSpelView extends BaseView {
 
     }
 
-    public Button getBtnAnnuleren() {
-        return btnAnnuleren;
-    }
-
-    public TextField getTxtfldSpelerNaam() {
-        return txtfldSpelerNaam;
-    }
-
-    public Label getLblSpelerNaam() {
-        return lblSpelerNaam;
-    }
-
     private void layoutNodes() {
         VBox hoofdingVBox = new VBox();
         hoofdingVBox.getChildren().addAll(txtStartSpel);
@@ -81,5 +69,17 @@ public class StartSpelView extends BaseView {
 
     public Button getBtnStartSpel() {
         return btnStartSpel;
+    }
+
+    public Button getBtnAnnuleren() {
+        return btnAnnuleren;
+    }
+
+    public TextField getTxtfldSpelerNaam() {
+        return txtfldSpelerNaam;
+    }
+
+    public Label getLblSpelerNaam() {
+        return lblSpelerNaam;
     }
 }

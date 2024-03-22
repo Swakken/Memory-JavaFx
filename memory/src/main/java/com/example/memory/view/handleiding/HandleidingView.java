@@ -39,8 +39,7 @@ public class HandleidingView extends BaseView {
         );
         bedieningTitel = new Text("Bediening:");
         bediening = new Text(
-                "- Gebruik de muis om kaarten te selecteren.\n" +
-                        "- ESC toets om het spel te pauzeren."
+                "- Gebruik de muis om kaarten te selecteren."
         );
 
     }
@@ -68,7 +67,6 @@ public class HandleidingView extends BaseView {
 
         txtTitel.setId("txtTitel");
         setCenter(MainVBox);
-
 
     }
 }

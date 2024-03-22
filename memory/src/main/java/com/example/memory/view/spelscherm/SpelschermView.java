@@ -96,22 +96,6 @@ public class SpelschermView extends BaseView {
         this.setLeft(txtScore);
     }
 
-    // Getters
-    public GridPane getGpSpelBord() {
-        return gpSpelBord;
-    }
-
-    public Button getBtnMenu() {
-        return btnMenu;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public Text getTxtSpelerNaam() {
-        return txtSpelerNaam;
-    }
 
     // Afbeeldingen van de dieren gelinkt aan de dierId's
     private void initialiseerAfbeeldingen() {
@@ -144,9 +128,6 @@ public class SpelschermView extends BaseView {
 
             // Toevoegen aan lijst
             alleKaartKnoppen.add(kaartButton);
-            //kaartButton.setOnAction();
-
-//            kaartButton.setOnAction(event -> draaiKaart(kaartButton));
         }
     }
 
@@ -227,4 +208,22 @@ public class SpelschermView extends BaseView {
             System.out.println("txtSpelerNaam is null. Kan naam niet instellen.");
         }
     }
+
+    // Getters
+    public GridPane getGpSpelBord() {
+        return gpSpelBord;
+    }
+
+    public Button getBtnMenu() {
+        return btnMenu;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public Text getTxtSpelerNaam() {
+        return txtSpelerNaam;
+    }
+
 }

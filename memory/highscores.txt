@@ -1,6 +1,5 @@
-Spelernaam: Simon: 62
-Spelernaam: Test: 54
-Spelernaam: Mol: 60
-Spelernaam: Bart: 20
 Spelernaam: Oom: 95
-Spelernaam: Pol: 102
+Spelernaam: Simon: 62
+Spelernaam: Mol: 60
+Spelernaam: Test: 54
+Spelernaam: Bart: 20
