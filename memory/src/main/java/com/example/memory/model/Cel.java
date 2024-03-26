@@ -8,7 +8,6 @@ public class Cel {
 
     int id;
 
-
     public Cel(int id) {
         this.id = id;
     }

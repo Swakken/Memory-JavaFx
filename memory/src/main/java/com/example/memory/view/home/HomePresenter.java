@@ -57,8 +57,4 @@ public class HomePresenter extends BasePresenter<HomeView> {
     }
 
 
-    }
-
-
-
-
+}

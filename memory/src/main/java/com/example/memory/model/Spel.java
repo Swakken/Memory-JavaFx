@@ -17,13 +17,6 @@ public class Spel {
         omgedraaideKaarten = new ArrayList<>();
     }
 
-
-    private void maakSpel() {
-        bord = new Bord(16);
-    }
-
-
-
     public boolean vergelijkKaarten(int id) {
         omgedraaideKaarten.add(id);
         boolean match = false;
@@ -37,13 +30,16 @@ public class Spel {
         return match;
     }
 
+    private void maakSpel() {
+        bord = new Bord(16);
+    }
+
     public Cel[] getCellenArray() {
         return bord.getCellenArray();
     }
     public int getEersteId() {
         return eersteId;
     }
-
     public int getTweedeId() {
         return tweedeId;
     }

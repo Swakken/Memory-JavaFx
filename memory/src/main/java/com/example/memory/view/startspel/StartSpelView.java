@@ -67,19 +67,15 @@ public class StartSpelView extends BaseView {
 
     }
 
+    // Getters
     public Button getBtnStartSpel() {
         return btnStartSpel;
     }
-
     public Button getBtnAnnuleren() {
         return btnAnnuleren;
     }
-
     public TextField getTxtfldSpelerNaam() {
         return txtfldSpelerNaam;
     }
 
-    public Label getLblSpelerNaam() {
-        return lblSpelerNaam;
-    }
 }

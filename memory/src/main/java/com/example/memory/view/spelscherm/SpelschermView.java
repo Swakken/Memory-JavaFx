@@ -210,18 +210,12 @@ public class SpelschermView extends BaseView {
     }
 
     // Getters
-    public GridPane getGpSpelBord() {
-        return gpSpelBord;
-    }
-
     public Button getBtnMenu() {
         return btnMenu;
     }
-
     public int getScore() {
         return score;
     }
-
     public Text getTxtSpelerNaam() {
         return txtSpelerNaam;
     }

@@ -25,5 +25,4 @@ public class HighscoresPresenter extends BasePresenter<HighscoresView> {
         });
     }
 
-
 }

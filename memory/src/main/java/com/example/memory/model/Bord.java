@@ -6,7 +6,6 @@ import java.util.*;
 public class Bord {
 
     private int lengte;
-
     private Cel[] cellenArray;
 
     //Bord Constructor
@@ -23,7 +22,6 @@ public class Bord {
 
     private void bordOpvullen() {
         List<Integer> uniekeIDs = new ArrayList<>();
-
 
         for (int i = 1; i <= lengte / 2; i++) {
             uniekeIDs.add(i);
@@ -42,10 +40,9 @@ public class Bord {
     }
 
 
-    // Volgorde van cellen randomizen
+    // Hier wordt de volgorde van de cellen random gekozen
     private void shuffleBord() {
         Random random = new Random();
-        // Start bij de laatste cel in de array
         for (int i = cellenArray.length - 1; i > 0; i--){
             // Getal genereren tussen 0 en "i"
             int j = random.nextInt(i + 1);
@@ -56,13 +53,7 @@ public class Bord {
         }
     }
 
-
-    public int getLengte() {
-        return lengte;
-    }
-
     public Cel[] getCellenArray(){
         return cellenArray;
     }
-
 }

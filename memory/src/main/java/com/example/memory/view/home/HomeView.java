@@ -74,5 +74,4 @@ public class HomeView extends BaseView {
         return btnHandleiding;
     }
 
-
 }
